@@ -2,33 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
-public class PlayerAnimation : MonoBehaviour, IAnimation
+public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField] private float _idleDuration;
-    [SerializeField] private float _idleVelocity;
+    private PlayerController _playerController;
+    private Animator _playerAnimator;
+    private SpriteRenderer _spriteRenderer;
+    private Transform _playerVisualTrm;
+    private GhostEffect _ghostEffect;
 
-    private bool _finishIdleCoolTime = true;
-
-    private void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            IdleAnimation();
+        _playerController = GetComponent<PlayerController>();
+        _playerVisualTrm = transform.Find("Visual");
+        _playerAnimator = _playerVisualTrm.GetComponent<Animator>();
+        _spriteRenderer = _playerVisualTrm.GetComponent<SpriteRenderer>();
+        _ghostEffect = GetComponent<GhostEffect>();
     }
 
-    public void IdleAnimation()
+    private void LateUpdate()
     {
-        if (!_finishIdleCoolTime)
-            return;
+        _playerAnimator.SetFloat("Speed", Mathf.Abs(_playerController.InputVector.x));
+        Flip();
+        Ghost();
+    }
 
-        _finishIdleCoolTime = false;
-        float currentScaleY = transform.localScale.y;
+    private void Ghost()
+    {
+        Vector2 inputVector = _playerController.InputVector;
+        _ghostEffect.spawnGhost = Mathf.Abs(inputVector.x) > 0 || Mathf.Abs(inputVector.y) > 0; 
+    }
 
-        transform.DOScale(currentScaleY * _idleVelocity,_idleDuration / 2)
-            .OnComplete(() =>
-            {
-                transform.DOScale(currentScaleY, _idleDuration / 2)
-                .OnComplete(() => _finishIdleCoolTime = true);
-            });
+    private void Flip()
+    {
+        _spriteRenderer.flipX = _playerController.InputVector.x < 0;
     }
 }
