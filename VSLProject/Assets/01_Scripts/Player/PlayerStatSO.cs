@@ -8,5 +8,5 @@ public class PlayerStatSO : ScriptableObject
     public float moveSpeed;
     public float attackDamage;
     public float attackSpeed;
-    public float HP;
+    public float MaxHp;
 }

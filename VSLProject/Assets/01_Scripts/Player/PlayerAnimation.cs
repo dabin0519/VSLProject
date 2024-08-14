@@ -4,20 +4,20 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimation : Player
 {
-    private PlayerController _playerController;
     private Animator _playerAnimator;
-    private SpriteRenderer _spriteRenderer;
+    private SpriteRenderer _playerSpriteRenderer;
     private Transform _playerVisualTrm;
     private GhostEffect _ghostEffect;
 
-    private void Awake()
+    protected override void Awake()
     {
-        _playerController = GetComponent<PlayerController>();
+        base.Awake();
+
         _playerVisualTrm = transform.Find("Visual");
         _playerAnimator = _playerVisualTrm.GetComponent<Animator>();
-        _spriteRenderer = _playerVisualTrm.GetComponent<SpriteRenderer>();
+        _playerSpriteRenderer = _playerVisualTrm.GetComponent<SpriteRenderer>();
         _ghostEffect = GetComponent<GhostEffect>();
     }
 
@@ -36,6 +36,15 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Flip()
     {
-        _spriteRenderer.flipX = _playerController.InputVector.x < 0;
+        if (_playerController.InputVector.x == 0)
+            return;
+        _playerSpriteRenderer.flipX = _playerController.InputVector.x < 0;
+    }
+
+    public void OnDamageAnimation()
+    {
+        //_playerSpriteRenderer.DOColor()
+        // 직접 애니메이션 코딩을 할지 그냥 단순 코딩을 할지가 고민이요. 
+        _playerAnimator.SetTrigger("Damage");
     }
 }

@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -517,7 +517,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1bit 16px icons part-2 outlines22_20
+      name: UI_Bar
       rect:
         serializedVersion: 2
         x: 480
@@ -526,7 +526,7 @@ TextureImporter:
         height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 4, y: 4, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -9252,6 +9252,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_Rect
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 498
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbfb0da7b4334764e90e60ce561ef17c
+      internalID: 2102242369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -9376,7 +9397,6 @@ TextureImporter:
       1bit 16px icons part-2 outlines22_198: -1016065846
       1bit 16px icons part-2 outlines22_199: 655017729
       1bit 16px icons part-2 outlines22_2: -1827378071
-      1bit 16px icons part-2 outlines22_20: -1096844251
       1bit 16px icons part-2 outlines22_200: 1667077930
       1bit 16px icons part-2 outlines22_201: 46611087
       1bit 16px icons part-2 outlines22_202: -569706621
@@ -9704,6 +9724,8 @@ TextureImporter:
       1bit 16px icons part-2 outlines22_97: -917517327
       1bit 16px icons part-2 outlines22_98: -352490277
       1bit 16px icons part-2 outlines22_99: -1958108571
+      UI_Bar: -1096844251
+      UI_Rect: 2102242369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
