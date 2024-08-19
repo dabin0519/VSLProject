@@ -40,9 +40,9 @@ public class PlayerHealth : Player
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.TryGetComponent<Enemy>(out Enemy enemy))
+        /*if(collision.transform.TryGetComponent<Enemy>(out Enemy enemy))
         {
             OnDamage(enemy.GetDamage());
-        }
+        }*/
     }
 }

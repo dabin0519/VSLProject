@@ -15,4 +15,4 @@ MonoBehaviour:
   moveSpeed: 5
   attackDamage: 0
   attackSpeed: 0
-  HP: 0
+  MaxHp: 0
