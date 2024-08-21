@@ -8,7 +8,7 @@ public class PlayerSkill : MonoBehaviour
     [SerializeField] private List<Stat> _statList; // ½ºÅÈÀ¸·Î ¹Ù²ã¾ßÇÔ
     [SerializeField] private int _maxListCount;
 
-    public void AddStat(Stat value)
+    /*public void AddStat(Stat value)
     {
         if (_statList.Count >= _maxListCount)
             return;
@@ -40,5 +40,5 @@ public class PlayerSkill : MonoBehaviour
         }
 
         _skillList.Add(value);
-    }
+    }*/
 }
