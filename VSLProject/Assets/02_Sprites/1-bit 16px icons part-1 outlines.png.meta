@@ -3352,7 +3352,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_155
+      name: UI_Panel
       rect:
         serializedVersion: 2
         x: 199
@@ -9431,7 +9431,6 @@ TextureImporter:
       1-bit 16px icons part-1 outlines_152: -1452488334
       1-bit 16px icons part-1 outlines_153: 2086120515
       1-bit 16px icons part-1 outlines_154: -982788330
-      1-bit 16px icons part-1 outlines_155: -953260175
       1-bit 16px icons part-1 outlines_156: 2091617297
       1-bit 16px icons part-1 outlines_157: -1589928484
       1-bit 16px icons part-1 outlines_158: -924444802
@@ -9809,6 +9808,7 @@ TextureImporter:
       Exp0: 1498686167
       Exp1: -1946878633
       Exp2: 1364351900
+      UI_Panel: -953260175
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
