@@ -2,27 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PlayerAttribute : MonoBehaviour
+[System.Serializable]
+public class SkillInfo
 {
-    public int level => _level;
-    private int _level;
+    public Skill skill;
+    public float coolTime;
 
-    public int maxLevel = 5;
-
-    protected Transform _playerTrm;
-    protected PlayerSkill _playerSkill;
-    protected PlayerController _playerController;
-
-    protected virtual void Awake()
+    public SkillInfo(Skill skill, float coolTime)
     {
-        _playerTrm = GameObject.Find("Player").transform;
-        _playerController = _playerTrm.GetComponent<PlayerController>();
-        _playerSkill = _playerTrm.GetComponent<PlayerSkill>();
+        this.skill = skill;
+        this.coolTime = coolTime;
+    }
+}
+
+public class PlayerAttribute : MonoBehaviour, IPlayerComponent
+{
+    [SerializeField] private List<SkillInfo> _skillInfoList;
+    [SerializeField] private List<Stat> _statList; // 스탯으로 바꿔야함
+    [SerializeField] private int _maxListCount;
+
+    public void Initialize(Player player)
+    {
+        
     }
 
-    public virtual void LevelUp(int value)
+    public void AddAttribute(Attribute attribute) 
     {
-        _level += value;
-        Mathf.Clamp(_level, 0, maxLevel);
+        Skill skill = attribute as Skill;
+        if(skill != null) // skill로 변환이 되면 skill 아니면 stat
+        {
+            _skillInfoList.Add(new SkillInfo(skill, Time.time));
+        }
+        else
+        {
+
+        }
     }
+
+    private void Update()
+    {
+        CalculateCoolTime();
+    }
+
+    private void CalculateCoolTime()
+    {
+        foreach(var skillInfo in _skillInfoList)
+        {
+            if(Time.time - skillInfo.coolTime >= skillInfo.skill.CoolTime)
+            {
+                skillInfo.skill.OnSkill();
+                skillInfo.coolTime = Time.time;
+            }
+        }
+    }
+
 }

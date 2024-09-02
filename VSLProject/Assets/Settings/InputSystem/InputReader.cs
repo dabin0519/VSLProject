@@ -6,11 +6,17 @@ using UnityEngine.InputSystem;
 using static Controls;
 
 [CreateAssetMenu(menuName = "SO/InputReader")]
-public class InputReader : ScriptableObject, IPlayerActions
+public class InputReader : ScriptableObject, IPlayerActions, IPlayerComponent
 {
-    public event Action<Vector2> MovementEvent;
+    public Vector2 Movement { get; private set; }
 
     private Controls _playerInputAction;
+    private Player _player;
+
+    public void Initialize(Player player)
+    {
+        _player = player;
+    }
 
     private void OnEnable()
     {
@@ -25,8 +31,9 @@ public class InputReader : ScriptableObject, IPlayerActions
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        Vector2 value = context.ReadValue<Vector2>();
-        MovementEvent?.Invoke(value);
+        Movement = context.ReadValue<Vector2>();
+       
     }
+
 }
 

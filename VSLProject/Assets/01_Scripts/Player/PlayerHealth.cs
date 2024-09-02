@@ -2,13 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : Player
+public class PlayerHealth : MonoBehaviour, IPlayerComponent
 {
     [SerializeField] private float _maxHp; // 이거 나중에 스탯 접근해서 가져오는 느낌쓰로 바꿔야함
     [SerializeField] private HpBarUI _hpBarUI;
     [SerializeField] private float _testDamage;
 
     private float _currentHp;
+    private Player _player;
+    private PlayerAnimation _playerAnimation;
+
+    public void Initialize(Player player)
+    {
+        _player = player;
+        _playerAnimation = _player.GetCompo<PlayerAnimation>();
+    }
 
     private void Start()
     {
@@ -45,4 +53,5 @@ public class PlayerHealth : Player
             OnDamage(enemy.GetDamage());
         }*/
     }
+
 }

@@ -1,23 +1,41 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class Player : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    private PlayerStatSO _playerStat;
+    [SerializeField] private InputReader _inputReader;
+    [SerializeField] private PlayerStatSO _playerStat; 
 
-    protected PlayerHealth      _playerHealth;
-    protected PlayerSkill       _playerSkill;
-    protected PlayerController  _playerController;
-    protected PlayerAnimation   _playerAnimation;
+    private Dictionary<Type, IPlayerComponent> _components;
 
-    public PlayerStatSO playerStat => _playerStat;
-
-    protected virtual void Awake()
+    private void Awake()
     {
-        _playerHealth = GetComponent<PlayerHealth>();
-        _playerController = GetComponent<PlayerController>();
-        _playerAnimation = GetComponent<PlayerAnimation>();
+        _components = new Dictionary<Type, IPlayerComponent>();
+
+        IPlayerComponent[] compoArr = GetComponentsInChildren<IPlayerComponent>();
+
+        foreach(var component in compoArr)
+        {
+            _components.Add(component.GetType(), component);
+        }
+
+        _components.Add(_inputReader.GetType(), _inputReader);
+        _components.Add(_playerStat.GetType(), _playerStat);
+
+        foreach(var component in _components.Values)
+        {
+            component.Initialize(this);
+        }
+    }
+
+    public T GetCompo<T>() where T : class
+    {
+        if (_components.TryGetValue(typeof(T), out IPlayerComponent compo))
+        {
+            return compo as T;
+        }
+        return default;
     }
 }

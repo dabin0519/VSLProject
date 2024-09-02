@@ -8,17 +8,23 @@ public class InfinityTileMap : MonoBehaviour
     [SerializeField] private float _limitYDistance;
     [SerializeField] private Transform _playerTrm;
 
-    private PlayerController _playerController;
+    private Player _player;
+    private InputReader _inputReader;
 
     private void Awake()
     {
-        _playerController = _playerTrm.GetComponent<PlayerController>();
+        _player = _playerTrm.GetComponent<Player>();
+    }
+
+    private void Start()
+    {
+        _inputReader = _player.GetCompo<InputReader>();
     }
 
     private void Update()
     {
-        float dirX = (int)_playerController.InputVector.x;
-        float dirY = (int)_playerController.InputVector.y;
+        float dirX = (int)_inputReader.Movement.x;
+        float dirY = (int)_inputReader.Movement.y;
 
         if (Mathf.Abs(transform.position.x - _playerTrm.position.x) > _limitXDistance)
         {

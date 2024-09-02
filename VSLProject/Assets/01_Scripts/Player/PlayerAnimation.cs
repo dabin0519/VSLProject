@@ -2,18 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+
+
 using System;
 
-public class PlayerAnimation : Player
+public class PlayerAnimation : MonoBehaviour, IPlayerComponent
 {
+    private Player _player;
+
     private Animator _playerAnimator;
     private SpriteRenderer _playerSpriteRenderer;
     private Transform _playerVisualTrm;
     private GhostEffect _ghostEffect;
+    private InputReader _inputReader;
 
-    protected override void Awake()
+    public void Initialize(Player player)
     {
-        base.Awake();
+        _player = player;
+
+        _inputReader = _player.GetCompo<InputReader>();
 
         _playerVisualTrm = transform.Find("Visual");
         _playerAnimator = _playerVisualTrm.GetComponent<Animator>();
@@ -23,22 +30,22 @@ public class PlayerAnimation : Player
 
     private void LateUpdate()
     {
-        _playerAnimator.SetFloat("Speed", Mathf.Abs(_playerController.InputVector.x));
+        _playerAnimator.SetFloat("Speed", Mathf.Abs(_inputReader.Movement.x));
         Flip();
         Ghost();
     }
 
     private void Ghost()
     {
-        Vector2 inputVector = _playerController.InputVector;
+        Vector2 inputVector = _inputReader.Movement;
         _ghostEffect.spawnGhost = Mathf.Abs(inputVector.x) > 0 || Mathf.Abs(inputVector.y) > 0; 
     }
 
     private void Flip()
     {
-        if (_playerController.InputVector.x == 0)
+        if (_inputReader.Movement.x == 0)
             return;
-        _playerSpriteRenderer.flipX = _playerController.InputVector.x < 0;
+        _playerSpriteRenderer.flipX = _inputReader.Movement.x < 0;
     }
 
     public void OnDamageAnimation()
@@ -47,4 +54,5 @@ public class PlayerAnimation : Player
         // 직접 애니메이션 코딩을 할지 그냥 단순 코딩을 할지가 고민이요. 
         _playerAnimator.SetTrigger("Damage");
     }
+
 }

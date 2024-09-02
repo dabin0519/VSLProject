@@ -11,6 +11,6 @@ public class ExpManager : MonoSingleton<ExpManager>
 
     private void Awake()
     {
-        _playerTransform = FindObjectOfType<PlayerController>().transform;
+        //_playerTransform = FindObjectOfType<PlayerController>().transform;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Stat : Attribute
+public interface IPlayerComponent
 {
-    
+    public void Initialize(Player player);
 }
