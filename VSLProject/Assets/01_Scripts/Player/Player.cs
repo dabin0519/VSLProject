@@ -6,7 +6,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private InputReader _inputReader;
-    [SerializeField] private PlayerStatSO _playerStat; 
 
     private Dictionary<Type, IPlayerComponent> _components;
 
@@ -22,7 +21,6 @@ public class Player : MonoBehaviour
         }
 
         _components.Add(_inputReader.GetType(), _inputReader);
-        _components.Add(_playerStat.GetType(), _playerStat);
 
         foreach(var component in _components.Values)
         {

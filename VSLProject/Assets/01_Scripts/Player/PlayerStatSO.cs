@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SO/PlayerAttribute/PlayerStat")]
-public class PlayerStatSO : PlayerAttributeSO, IPlayerComponent
+public class PlayerStatSO : PlayerAttributeSO
 {
     public float moveSpeed;
     public float attackDamage;
     public float attackSpeed;
     public float MaxHp;
 
-
-    // 일단 안쓸거긴한데 혹시모르니까
-    private Player _player;
-
-    public void Initialize(Player player)
+    public static PlayerStatSO operator+(PlayerStatSO value1, PlayerStatSO value2)
     {
-        _player = player;    
+        value1.moveSpeed += value2.moveSpeed;
+        value1.attackDamage += value2.attackDamage;
+        value1.attackSpeed += value2.attackSpeed;
+        value1.MaxHp += value2.MaxHp;
+
+        // 추가로 달면 더 ㄱㄱ
+
+        return value1;
     }
 }

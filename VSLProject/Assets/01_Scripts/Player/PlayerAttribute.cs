@@ -20,22 +20,24 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
     [SerializeField] private List<SkillInfo> _skillInfoList;
     [SerializeField] private List<Stat> _statList; // 스탯으로 바꿔야함
     [SerializeField] private int _maxListCount;
+    [SerializeField] private Transform _skillHolder;
 
     public void Initialize(Player player)
     {
         
     }
 
-    public void AddAttribute(Attribute attribute) 
+    public void AddAttribute(Attribute attribute)
     {
         Skill skill = attribute as Skill;
-        if(skill != null) // skill로 변환이 되면 skill 아니면 stat
+        if (skill != null) // skill로 변환이 되면 skill 아니면 stat
         {
             _skillInfoList.Add(new SkillInfo(skill, Time.time));
         }
-        else
+        Stat stat = attribute as Stat;
+        if (stat != null)
         {
-
+            // stat을 뭔가 변경해야하는데 음..
         }
     }
 

@@ -8,22 +8,11 @@ public abstract class Attribute : MonoBehaviour
     private int _level;
 
     public int maxLevel = 5;
-    public PlayerAttributeSO attributeSO; 
+    public PlayerAttributeSO attributeSO;  
 
-    protected Transform _playerTrm;
-    protected PlayerAttribute _playerSkill;
-    protected PlayerMovement _playerMovement;
-
-    protected virtual void Awake()
+    public virtual void LevelUp()
     {
-        _playerTrm = GameObject.Find("Player").transform;
-        _playerMovement = _playerTrm.GetComponent<PlayerMovement>();
-        _playerSkill = _playerTrm.GetComponent<PlayerAttribute>();
-    }
-
-    public virtual void LevelUp(int value)
-    {
-        _level += value;
+        _level++;
         Mathf.Clamp(_level, 0, maxLevel);
     }
 }

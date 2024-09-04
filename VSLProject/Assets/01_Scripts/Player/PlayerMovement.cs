@@ -6,13 +6,13 @@ public class PlayerMovement : MonoBehaviour, IPlayerComponent
 {
     private Player _player;
     private InputReader _inputReader;
-    private PlayerStatSO _playerStatSO;
+    private PlayerStat _playerStat;
 
     public void Initialize(Player player)
     {
         _player = player;
         _inputReader = player.GetCompo<InputReader>();
-        _playerStatSO = player.GetCompo<PlayerStatSO>();
+        _playerStat = player.GetCompo<PlayerStat>();
     }
 
     private void Awake()
@@ -23,6 +23,6 @@ public class PlayerMovement : MonoBehaviour, IPlayerComponent
     private void FixedUpdate()
     {
         Vector3 moveVec = _inputReader.Movement;
-        transform.position += moveVec * _playerStatSO.moveSpeed * Time.fixedDeltaTime;
+        transform.position += moveVec * _playerStat.PlayerStatProperty.moveSpeed * Time.fixedDeltaTime;
     }
 }

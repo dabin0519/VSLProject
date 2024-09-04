@@ -14,6 +14,9 @@ public class SkillCardUI : MonoBehaviour // 스킬 icon 이름 설명등을 관리하는 UI 
     private TextMeshProUGUI _skillName;
     private TextMeshProUGUI _skillDescription;
     private RectTransform _rectTransform;
+    private Attribute _attribute;
+
+    public Attribute attribute => _attribute;
 
     private void Awake()
     {
@@ -23,11 +26,13 @@ public class SkillCardUI : MonoBehaviour // 스킬 icon 이름 설명등을 관리하는 UI 
         _rectTransform = GetComponent<RectTransform>();
     }
 
-    public void ShowUI(Sprite icon, string name, string description)
+    public void ShowUI(AttributeInfo info, Attribute attribute)
     {
-        _skillIcon.sprite = icon;
-        _skillName.text = name;
-        _skillDescription.text = description;
+        _attribute = attribute;
+
+        _skillIcon.sprite = info.icon;
+        _skillName.text = info.name;
+        _skillDescription.text = info.description;
     }
 
     public void ClearUI()

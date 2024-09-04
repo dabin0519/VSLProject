@@ -12,5 +12,5 @@ public struct AttributeInfo
 
 public abstract class PlayerAttributeSO : ScriptableObject
 {
-    public AttributeInfo Attribute;
+    public AttributeInfo AttributeInfo;
 }

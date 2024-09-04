@@ -59,8 +59,9 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel 자체를 관리하는 �
             {
                 if(value)
                 {
-                    AttributeInfo attributeInfo = RandomAttribute().attributeSO.Attribute;
-                    _cardList[i].ShowUI(attributeInfo.icon, attributeInfo.name, attributeInfo.description);
+                    var attribute = RandomAttribute();
+                    AttributeInfo attributeInfo = attribute.attributeSO.AttributeInfo;
+                    _cardList[i].ShowUI(attributeInfo, attribute);
                 }
                 else
                 {

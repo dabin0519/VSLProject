@@ -7069,7 +7069,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_332
+      name: ui_skeletonHead
       rect:
         serializedVersion: 2
         x: 415
@@ -9624,7 +9624,6 @@ TextureImporter:
       1-bit 16px icons part-1 outlines_33: 729223557
       1-bit 16px icons part-1 outlines_330: 187036385
       1-bit 16px icons part-1 outlines_331: -844913971
-      1-bit 16px icons part-1 outlines_332: -1402853845
       1-bit 16px icons part-1 outlines_333: -213664193
       1-bit 16px icons part-1 outlines_334: 2106727100
       1-bit 16px icons part-1 outlines_335: -106319472
@@ -9809,6 +9808,7 @@ TextureImporter:
       Exp1: -1946878633
       Exp2: 1364351900
       UI_Panel: -953260175
+      ui_skeletonHead: -1402853845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
