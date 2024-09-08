@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class CircleSkillVisual : MonoBehaviour
+public class CircleSkillVisual : Damage
 {
     [SerializeField] private float _radius;
     [SerializeField] private float _speed;
@@ -19,6 +19,8 @@ public class CircleSkillVisual : MonoBehaviour
     {
         _spriteRenderer = transform.Find("Visual").GetComponent<SpriteRenderer>();
         _currentColor = _spriteRenderer.color;
+
+        damageAmount = transform.parent.GetComponent<Skill>().DamageAmount;
     }
 
     private void Update()
@@ -45,6 +47,6 @@ public class CircleSkillVisual : MonoBehaviour
 
     public void OffSkill()
     {
-        _spriteRenderer.DOFade(0, 1).OnComplete(() => gameObject.SetActive(false));
+        _spriteRenderer.DOFade(0, 0.2f).OnComplete(() => gameObject.SetActive(false));
     }
 }

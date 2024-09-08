@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalEnemyBrain : EnemyBrain
+public class NormalEnemyBrain : EnemyBrain 
 {
     [SerializeField] private float _moveSpeed;
 
     private EnemyVisualController _enemyVisualController;
     private Vector3 _moveDir;
+    private EnemyHealth _enemyHealth;
 
     private void Awake()
     {
         _enemyVisualController = transform.Find("Visual").GetComponent<EnemyVisualController>();
+        target = GameObject.Find("Player");
+        _enemyHealth = GetComponent<EnemyHealth>();
     }
 
     public override void Attack()

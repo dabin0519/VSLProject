@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private SkillSelectUI _skillSelectUI;
+
+    private void Awake()
     {
-        
+        GameManager.Instance.GameStartEvent += SettingSelectUI;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SettingSelectUI()
     {
-        
+        _skillSelectUI.gameObject.SetActive(true);
+        _skillSelectUI.ShowSkillUI(true);
     }
 }

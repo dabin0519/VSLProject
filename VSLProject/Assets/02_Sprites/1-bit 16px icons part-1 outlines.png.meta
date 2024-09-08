@@ -6859,7 +6859,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_322
+      name: UI_Arrow
       rect:
         serializedVersion: 2
         x: 175
@@ -9613,7 +9613,6 @@ TextureImporter:
       1-bit 16px icons part-1 outlines_32: 1366472294
       1-bit 16px icons part-1 outlines_320: 1386572744
       1-bit 16px icons part-1 outlines_321: -203563777
-      1-bit 16px icons part-1 outlines_322: -849510404
       1-bit 16px icons part-1 outlines_323: -1811009391
       1-bit 16px icons part-1 outlines_324: -1717302845
       1-bit 16px icons part-1 outlines_325: 1126892008
@@ -9807,6 +9806,7 @@ TextureImporter:
       Exp0: 1498686167
       Exp1: -1946878633
       Exp2: 1364351900
+      UI_Arrow: -849510404
       UI_Panel: -953260175
       ui_skeletonHead: -1402853845
   mipmapLimitGroupName: 

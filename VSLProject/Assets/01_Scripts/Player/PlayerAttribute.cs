@@ -27,12 +27,34 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
         
     }
 
-    public void AddAttribute(Attribute attribute)
+    private void Update()
     {
-        Skill skill = attribute as Skill;
+        if (_skillInfoList.Count != 0)
+        {
+            CalculateCoolTime();
+        }
+    }
+
+    public void AddAttribute(Attribute attribute) 
+    {
+        Skill skill = attribute as Skill; 
         if (skill != null) // skill로 변환이 되면 skill 아니면 stat
         {
-            _skillInfoList.Add(new SkillInfo(skill, Time.time));
+            bool checker = true;
+
+            foreach(var skillInfo in _skillInfoList)
+            {
+                if (skillInfo.skill == skill)
+                {
+                    skill.LevelUp();
+                    checker = false;
+                    break;
+                }
+            }
+            if (checker)
+            {
+                AddSkill(skill);
+            }    
         }
         Stat stat = attribute as Stat;
         if (stat != null)
@@ -41,21 +63,26 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
         }
     }
 
-    private void Update()
-    {
-        CalculateCoolTime();
-    }
-
     private void CalculateCoolTime()
     {
         foreach(var skillInfo in _skillInfoList)
         {
-            if(Time.time - skillInfo.coolTime >= skillInfo.skill.CoolTime)
+            if (skillInfo.skill.OnSkillPropety) continue;
+            if( skillInfo.coolTime >= skillInfo.skill.CoolTime)
             {
                 skillInfo.skill.OnSkill();
-                skillInfo.coolTime = Time.time;
+                skillInfo.coolTime = 0;
+            }
+            else
+            {
+                skillInfo.coolTime += Time.deltaTime;
             }
         }
     }
 
+    private void AddSkill(Skill skill)
+    {
+        Skill newSkill = Instantiate(skill, _skillHolder);
+        _skillInfoList.Add(new SkillInfo(newSkill, 0));
+    }
 }

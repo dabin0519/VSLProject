@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95dc185087e2a0243b69e788251c225c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _level: 0
   maxLevel: 5
-  attributeSO: {fileID: 0}
-  _coolTime: 0
+  attributeSO: {fileID: 11400000, guid: 1696e1366c6843d4fb38f87688aa87ef, type: 2}
+  _coolTime: 3
   _duration: 3
-  _playerTrm: {fileID: 0}
+  _damageAmount: 1
   _circleSkillPrefab: {fileID: 6242457464198136820, guid: ddeb9e77b51b6c44a93928f2daa65667, type: 3}
   _visualList: []

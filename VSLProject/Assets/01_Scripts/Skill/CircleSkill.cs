@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,25 +8,17 @@ public class CircleSkill : Skill
     [SerializeField] private CircleSkillVisual _circleSkillPrefab;
     [SerializeField] private List<CircleSkillVisual> _visualList;
 
-    protected override void Update()
-    {
-        base.Update();
-
-        if(Input.GetMouseButtonDown(0))
-        {
-            OnSkill();
-        }
-        if(Input.GetMouseButtonDown(1))
-        {
-            SkillLevelUP();
-        }
-    }
-
     public override void OnSkill()
     {
         base.OnSkill();
 
         int cnt = _visualList.Count;
+
+        if(cnt == 0)
+        {
+            SpawnVisual();
+        }
+
         for(int i = 0; i < cnt; ++i)
         {
             _visualList[i].gameObject.SetActive(true);
@@ -33,11 +26,16 @@ public class CircleSkill : Skill
         }
     }
 
-    public override void SkillLevelUP()
+    private void SpawnVisual()
     {
         CircleSkillVisual newSkillVisual = Instantiate(_circleSkillPrefab, transform);
         _visualList.Add(newSkillVisual);
         newSkillVisual.gameObject.SetActive(false);
+    }
+
+    public override void SkillLevelUP()
+    {
+        SpawnVisual();
     }
 
     public override void OffSkill()

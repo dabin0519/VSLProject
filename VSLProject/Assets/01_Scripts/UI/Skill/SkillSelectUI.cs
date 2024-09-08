@@ -22,6 +22,14 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel ÀÚÃ¼¸¦ °ü¸®ÇÏ´Â Ä
         _backGroundRectTrm.localPosition = new Vector3(0, -1000);
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            ShowSkillUI(true);
+        }
+    }
+
     private Attribute RandomAttribute()
     {
         int randomIdx;
@@ -46,6 +54,7 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel ÀÚÃ¼¸¦ °ü¸®ÇÏ´Â Ä
 
     public void ShowSkillUI(bool value)
     {
+        GameManager.Instance.GamePause(value);
         float posY = value ? 0 : -1000;
         
         if(value)
@@ -53,21 +62,19 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel ÀÚÃ¼¸¦ °ü¸®ÇÏ´Â Ä
             _cardIdxList.Clear();
         }
 
-        //_backGroundRectTrm.DOLocalMoveY(posY, _duration).OnComplete(() =>
+        for (int i = 0; i < 3; ++i)
         {
-            for(int i = 0; i < 3; ++i)
+            if (value)
             {
-                if(value)
-                {
-                    var attribute = RandomAttribute();
-                    AttributeInfo attributeInfo = attribute.attributeSO.AttributeInfo;
-                    _cardList[i].ShowUI(attributeInfo, attribute);
-                }
-                else
-                {
-                    _cardList[i].ClearUI();
-                }
+                var attribute = RandomAttribute();
+                AttributeInfo attributeInfo = attribute.attributeSO.AttributeInfo;
+                _cardList[i].ShowUI(attributeInfo, attribute);
             }
-        }//);
+            else
+            {
+                _cardList[i].ClearUI();
+            }
+        }
+        _backGroundRectTrm.DOLocalMoveY(posY, _duration).SetUpdate(true);
     }
 }

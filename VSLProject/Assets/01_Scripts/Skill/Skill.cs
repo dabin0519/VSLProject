@@ -6,12 +6,22 @@ public abstract class Skill : Attribute
 {
     [SerializeField] protected float _coolTime; // 스킬 쿨타임
     [SerializeField] protected float _duration; // 스킬 지속시간
-    [SerializeField] protected Transform _playerTrm;
+    [SerializeField] protected float _damageAmount;
+    protected Transform _playerTrm;
 
     public float CoolTime => _coolTime;
+    public float DamageAmount => _damageAmount;
+    public bool OnSkillPropety => _onSkill;
 
     private bool _onSkill;
     private float _time;
+
+    protected virtual void Awake()
+    {
+        _playerTrm = GameObject.Find("Player").transform;
+
+        _time = _duration;
+    }
 
     protected virtual void Update()
     {
