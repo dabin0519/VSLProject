@@ -6,6 +6,12 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     public event Action GameStartEvent;
+    public Transform PlayerTrm { get; private set; }
+
+    private void Awake()
+    {
+        PlayerTrm = GameObject.Find("Player").transform;
+    }
 
     private void Start()
     {

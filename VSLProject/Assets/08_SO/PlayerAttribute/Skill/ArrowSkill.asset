@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5f873b3f66e4f647a96b9ca36164ab2, type: 3}
-  m_Name: CircleSkill
+  m_Name: ArrowSkill
   m_EditorClassIdentifier: 
   AttributeInfo:
-    icon: {fileID: -1402853845, guid: 94caa99bd60cc484e983a70c65030a4d, type: 3}
-    name: "\uC6D0\uD615 \uC2A4\uD0AC"
-    description: "\uD50C\uB808\uC774\uC5B4 \uC8FC\uC704\uB85C \uBB3C\uCCB4\uAC00
-      \uD68C\uC804\uD569\uB2C8\uB2E4"
+    icon: {fileID: -849510404, guid: 94caa99bd60cc484e983a70c65030a4d, type: 3}
+    name: "\uD654\uC0B4 \uC2A4\uD0AC"
+    description: "\uB9C8\uC6B0\uC2A4 \uBC29\uD5A5\uC73C\uB85C \uD654\uC0B4\uC744
+      \uBC1C\uC0AC\uD569\uB2C8\uB2E4"

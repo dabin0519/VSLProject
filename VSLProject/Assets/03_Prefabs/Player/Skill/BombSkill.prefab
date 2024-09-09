@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6013202176111392688
+--- !u!1 &2437715530560926730
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1943683123958435655}
-  - component: {fileID: 410916271000907034}
+  - component: {fileID: 8173569071450314396}
+  - component: {fileID: 6895559668942631972}
   m_Layer: 0
-  m_Name: CircleSkill
+  m_Name: BombSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1943683123958435655
+--- !u!4 &8173569071450314396
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6013202176111392688}
+  m_GameObject: {fileID: 2437715530560926730}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,24 +32,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &410916271000907034
+--- !u!114 &6895559668942631972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6013202176111392688}
+  m_GameObject: {fileID: 2437715530560926730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95dc185087e2a0243b69e788251c225c, type: 3}
+  m_Script: {fileID: 11500000, guid: bb06938e7e3b0d149888b0652a0a7bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _level: 0
   maxLevel: 5
-  attributeSO: {fileID: 11400000, guid: c1bdfb43409473e499425e5e3dd13992, type: 2}
-  _coolTime: 3
-  _duration: 3
-  _damageAmount: 1
-  _damageList: []
-  _damagePrefab: {fileID: 6242457464198136820, guid: ddeb9e77b51b6c44a93928f2daa65667, type: 3}
-  SpawnTransform: 1
+  attributeSO: {fileID: 11400000, guid: 3d9824683c02a244b962da692dfbbe69, type: 2}
+  _coolTime: 6
+  _duration: 0
+  _damageAmount: 2
+  _explosionRange: 2
+  _increaseRange: 1
+  _explosionTime: 1
+  _bombPrefab: {fileID: 2467327762119371632, guid: c133278efa8e2904f8e02cfb93f37960, type: 3}

@@ -7867,7 +7867,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_370
+      name: Ui_bomb
       rect:
         serializedVersion: 2
         x: 319
@@ -9664,7 +9664,6 @@ TextureImporter:
       1-bit 16px icons part-1 outlines_368: -2119969230
       1-bit 16px icons part-1 outlines_369: 1578599989
       1-bit 16px icons part-1 outlines_37: 973413928
-      1-bit 16px icons part-1 outlines_370: 1758532266
       1-bit 16px icons part-1 outlines_371: -699518778
       1-bit 16px icons part-1 outlines_372: 1060626534
       1-bit 16px icons part-1 outlines_373: -1109446974
@@ -9808,6 +9807,7 @@ TextureImporter:
       Exp2: 1364351900
       UI_Arrow: -849510404
       UI_Panel: -953260175
+      Ui_bomb: 1758532266
       ui_skeletonHead: -1402853845
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

@@ -13,12 +13,12 @@ public abstract class Skill : Attribute
     public float DamageAmount => _damageAmount;
     public bool OnSkillPropety => _onSkill;
 
-    private bool _onSkill;
+    protected bool _onSkill;
     private float _time;
 
     protected virtual void Awake()
     {
-        _playerTrm = GameObject.Find("Player").transform;
+        _playerTrm = GameManager.Instance.PlayerTrm;
 
         _time = _duration;
     }

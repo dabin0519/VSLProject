@@ -45,7 +45,7 @@ public class CircleSkillVisual : Damage
             _playerTrm.position.y + _radius * Mathf.Sin(_theta));
     }
 
-    public void OffSkill()
+    public override void OffSkill()
     {
         _spriteRenderer.DOFade(0, 0.2f).OnComplete(() => gameObject.SetActive(false));
     }

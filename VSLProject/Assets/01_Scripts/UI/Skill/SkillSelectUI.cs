@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class SkillSelectUI : MonoBehaviour // skillSelectPenel 자체를 관리하는 친구
 {
-    [SerializeField] private List<Attribute> _attributeList;
+    public List<Attribute> attributeList;
     [SerializeField] private float _duration;
 
     private List<SkillCardUI> _cardList;
@@ -35,12 +35,12 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel 자체를 관리하는 �
         int randomIdx;
         do
         {
-            randomIdx = Random.Range(0, _attributeList.Count);
+            randomIdx = Random.Range(0, attributeList.Count);
         }
-        while (_attributeList[randomIdx].level >= _attributeList[randomIdx].maxLevel || IsDuplication(randomIdx)); // 랜덤 속성을 뽑았는데 만약 속성에 최고레벨이면 아닐때까지 ㄱㄱ
+        while (attributeList[randomIdx].level >= attributeList[randomIdx].maxLevel || IsDuplication(randomIdx)); // 랜덤 속성을 뽑았는데 만약 속성에 최고레벨이면 아닐때까지 ㄱㄱ
 
         _cardIdxList.Add(randomIdx);
-        return _attributeList[randomIdx];
+        return attributeList[randomIdx];
     }
 
     private bool IsDuplication(int randomIdx) // 한무 반복인대요? 수정하셔야겠는데ㅐ용?
