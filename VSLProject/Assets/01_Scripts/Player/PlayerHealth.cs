@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : HealthSystem, IPlayerComponent
 {
@@ -22,6 +23,6 @@ public class PlayerHealth : HealthSystem, IPlayerComponent
 
     public override void OnDie()
     {
-        
+        SceneManager.LoadScene(0);
     }
 }

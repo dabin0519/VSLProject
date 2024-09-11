@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +38,7 @@ public class EnemyHealth : HealthSystem, IDamageAble
 
     public override void OnDie()
     {
+        SpawnExpSystem.Instance.SpawnExp(transform.position, 1f);
         Destroy(gameObject);
     }
 

@@ -265,7 +265,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ws_Yokai_8
+      name: Player
       rect:
         serializedVersion: 2
         x: 83
@@ -359,6 +359,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Player: 371389317
       Ws_Yokai_0: 2008429962
       Ws_Yokai_1: 1075356214
       Ws_Yokai_10: 1997065500
@@ -370,7 +371,6 @@ TextureImporter:
       Ws_Yokai_5: -891677228
       Ws_Yokai_6: 222024033
       Ws_Yokai_7: -1604375159
-      Ws_Yokai_8: 371389317
       Ws_Yokai_9: -706967511
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

@@ -19,7 +19,7 @@ public class BombSkill : Skill
 
     private void SpawnBomb()
     {
-        BombSkillVisual newBomb = Instantiate(_bombPrefab);
+        BombSkillVisual newBomb = Instantiate(_bombPrefab, _playerTrm.position, Quaternion.identity);
         newBomb.OnSkill(_explosionRange, _explosionTime, _damageAmount);
     }
 

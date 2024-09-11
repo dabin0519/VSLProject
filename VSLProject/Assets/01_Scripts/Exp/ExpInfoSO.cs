@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct ExpInfo
+public struct ExpInfoTest
 {
     public Vector3 expPosition;     // 경험치 포지션 
     public float expAmount;         // 경험치 량 
@@ -12,5 +12,5 @@ public struct ExpInfo
 [CreateAssetMenu(menuName = ("SO/ExpInfo"))]
 public class ExpInfoSO : ScriptableObject
 {
-    public List<ExpInfo> ExpInfo;
+    public List<ExpInfoTest> ExpInfo;
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 91ba438333d20d049ad525b35e504537
+guid: a5cb4fe4a82706e44b2437466ffdcde7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_BarB_0
+      name: UI_BarB1_0
       rect:
         serializedVersion: 2
         x: 7
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8be7997d8ef7c3c4a9b49a46355dd079
-      internalID: 206182961
+      spriteID: e32340b36352ce54c95b0a2787c33323
+      internalID: -1849460828
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UI_BarB_0: 206182961
+      UI_BarB1_0: -1849460828
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

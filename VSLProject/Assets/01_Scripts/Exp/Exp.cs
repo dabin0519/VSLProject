@@ -4,5 +4,14 @@ using UnityEngine;
 
 public class Exp : MonoBehaviour
 {
-    
+    public float expAmount;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.TryGetComponent(out PlayerExp playerExp))
+        {
+            playerExp.currentExp += expAmount;
+            Destroy(gameObject);
+        }
+    }
 }

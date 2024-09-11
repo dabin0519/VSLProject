@@ -37,7 +37,7 @@ public class BombSkillVisual : MonoBehaviour
             yield return new WaitForSeconds(time * 2);
         }
 
-        Instantiate(_bombEffect, transform.position, Quaternion.identity);
+        GameObject newObject = Instantiate(_bombEffect, transform.position, Quaternion.identity);
 
         // bomb 
         RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, explosionRange, Vector2.zero);
@@ -45,5 +45,8 @@ public class BombSkillVisual : MonoBehaviour
         {
             damageAble.GetDamage(damageAmout);
         }
+
+        Destroy(gameObject);
+        Destroy(newObject, 0.8f);
     }
 }
