@@ -4,10 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : HealthSystem, IDamageAble
+public class EnemyHealth : HealthSystem
 {
     [SerializeField] private Color _hurtColor = Color.red;
-    
+
+    private IPoolable _enemyPool;
     private SpriteRenderer _spriteRenderer;
     private Color _defaultColor;
 
@@ -15,6 +16,7 @@ public class EnemyHealth : HealthSystem, IDamageAble
     {
         _spriteRenderer = transform.Find("Visual").GetComponent<SpriteRenderer>();
         _defaultColor = _spriteRenderer.color;
+        _enemyPool = GetComponent<IPoolable>();
     }
 
     protected override void OnDamage(float damage)
@@ -31,15 +33,10 @@ public class EnemyHealth : HealthSystem, IDamageAble
         _hpBarUI.UpdateUI(_currentHp, _maxHp);
     }
 
-    public void GetDamage(float damage)
-    {
-        OnDamage(damage);
-    }
-
     public override void OnDie()
     {
         SpawnExpSystem.Instance.SpawnExp(transform.position, 1f);
-        Destroy(gameObject);
+        PoolManager.Instance.Push(_enemyPool);
     }
 
     private IEnumerator HurtAnimation()

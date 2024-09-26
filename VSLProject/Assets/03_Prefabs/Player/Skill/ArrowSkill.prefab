@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5236763755576447846}
   - component: {fileID: 1122935800096264082}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ArrowSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,8 @@ MonoBehaviour:
   _coolTime: 3
   _duration: 2
   _damageAmount: 1
+  skillClip: {fileID: 0}
   _damageList: []
   _damagePrefab: {fileID: 4470998707784524566, guid: 30426083d017320449a8f1d699e8ea7c, type: 3}
+  SpawnTransform: 0
   _angle: 90

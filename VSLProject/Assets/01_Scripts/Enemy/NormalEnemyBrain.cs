@@ -3,38 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalEnemyBrain : EnemyBrain 
-{
-    [SerializeField] private float _moveSpeed;
+public class NormalEnemyBrain : EnemyBrain, IPoolable
+{    
+    private Pool _myPool;
 
-    private EnemyVisualController _enemyVisualController;
-    private Vector3 _moveDir;
-    private EnemyHealth _enemyHealth;
-
-    private void Awake()
-    {
-        _enemyVisualController = transform.Find("Visual").GetComponent<EnemyVisualController>();
-        target = GameObject.Find("Player");
-        _enemyHealth = GetComponent<EnemyHealth>();
-    }
-
-    public override void Attack()
+    public override void Attack(System.Action AttackFinishEvent)
     {
 
     }
 
-    public override void MoveTo(Vector2 dir)
+    public override void SetUpPool(Pool pool)
     {
-        _moveDir = dir;
+        _myPool = pool;
     }
 
-    private void FixedUpdate()
+    public override void ResetItem()
     {
-        transform.position += _moveDir * _moveSpeed * Time.fixedDeltaTime;
-
-        if(_moveDir.x != 0)
-        {
-            _enemyVisualController.Flip(_moveDir.x < 0);
-        }
+        
     }
 }

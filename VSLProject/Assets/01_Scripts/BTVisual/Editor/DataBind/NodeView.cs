@@ -18,7 +18,7 @@ namespace BTVisual
 
         public Action<NodeView> OnNodeSelected;
 
-        public NodeView(Node node) : base("Assets/BTVisual/Editor/DataBind/NodeView.uxml")
+        public NodeView(Node node) : base("Assets/01_Scripts/BTVisual/Editor/DataBind/NodeView.uxml")
         {
             this.node = node;
             this.title = node.name;

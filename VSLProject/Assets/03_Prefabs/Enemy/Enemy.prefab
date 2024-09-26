@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8940624192726036175}
   - component: {fileID: 6559780100330805065}
   - component: {fileID: 2000402333932227187}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   _moveSpeed: 2
+  _damage: 0.5
+  <PoolType>k__BackingField: {fileID: 11400000, guid: 5400bf92362dfb249b006a4c032996fb, type: 2}
 --- !u!114 &2000402333932227187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 5
   _hpBarUI: {fileID: 6143081025308660639}
+  _hurtColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &7698693024503798792
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +241,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b916862024480534da44e0a406bc6593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemySpriteInfo:
+  - sprite: {fileID: 2008429962, guid: 788e0d6b50a539b428d81ff6b7c0fff3, type: 3}
+    scale: 0.5
+  - sprite: {fileID: 1075356214, guid: 788e0d6b50a539b428d81ff6b7c0fff3, type: 3}
+    scale: 0.7
+  - sprite: {fileID: -662319553, guid: 788e0d6b50a539b428d81ff6b7c0fff3, type: 3}
+    scale: 0.7
+  - sprite: {fileID: 1949824630, guid: 788e0d6b50a539b428d81ff6b7c0fff3, type: 3}
+    scale: 0.7
+  - sprite: {fileID: -1845732215, guid: 788e0d6b50a539b428d81ff6b7c0fff3, type: 3}
+    scale: 0.7
+  - sprite: {fileID: -891677228, guid: 788e0d6b50a539b428d81ff6b7c0fff3, type: 3}
+    scale: 0.6
+  - sprite: {fileID: 222024033, guid: 788e0d6b50a539b428d81ff6b7c0fff3, type: 3}
+    scale: 1
+  - sprite: {fileID: -1604375159, guid: 788e0d6b50a539b428d81ff6b7c0fff3, type: 3}
+    scale: 0.6
+  - sprite: {fileID: -706967511, guid: 788e0d6b50a539b428d81ff6b7c0fff3, type: 3}
+    scale: 0.55
+  - sprite: {fileID: 1997065500, guid: 788e0d6b50a539b428d81ff6b7c0fff3, type: 3}
+    scale: 0.4
+  - sprite: {fileID: 1180122182, guid: 788e0d6b50a539b428d81ff6b7c0fff3, type: 3}
+    scale: 0.6
 --- !u!1001 &803644809022910917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -249,6 +275,14 @@ PrefabInstance:
     - target: {fileID: 1287836289796899730, guid: cfd2c5d2712a0ea42a057e938682a44b, type: 3}
       propertyPath: m_Name
       value: HpBarContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1287836289796899730, guid: cfd2c5d2712a0ea42a057e938682a44b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2772781957804076796, guid: cfd2c5d2712a0ea42a057e938682a44b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5636096115256446709, guid: cfd2c5d2712a0ea42a057e938682a44b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -288,6 +322,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5636096115256446709, guid: cfd2c5d2712a0ea42a057e938682a44b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7924957596757866623, guid: cfd2c5d2712a0ea42a057e938682a44b, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191192687793223935, guid: cfd2c5d2712a0ea42a057e938682a44b, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

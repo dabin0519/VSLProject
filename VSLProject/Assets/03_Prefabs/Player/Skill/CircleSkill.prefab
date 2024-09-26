@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1943683123958435655}
   - component: {fileID: 410916271000907034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CircleSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,7 @@ MonoBehaviour:
   _coolTime: 3
   _duration: 3
   _damageAmount: 1
+  skillClip: {fileID: 0}
   _damageList: []
   _damagePrefab: {fileID: 6242457464198136820, guid: ddeb9e77b51b6c44a93928f2daa65667, type: 3}
   SpawnTransform: 1

@@ -13,6 +13,7 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel ÀÚÃ¼¸¦ °ü¸®ÇÏ´Â Ä
     [SerializeField] private List<int> _cardIdxList = new List<int>();
 
     private RectTransform _backGroundRectTrm;
+    private bool _isFirstTime; // ÃÖÃÊ ½ÃÀÛ½Ã ½ºÅÈ¶ß¸é ¸ÁÇÏ´Ï±î ½ºÅ³¸¸ ¶ß°ÔÇÏ±â À§ÇÑ º¯¼ö
 
     private void Awake()
     {
@@ -20,14 +21,8 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel ÀÚÃ¼¸¦ °ü¸®ÇÏ´Â Ä
         _cardList = transform.GetComponentsInChildren<SkillCardUI>().ToList();
 
         _backGroundRectTrm.localPosition = new Vector3(0, -1000);
-    }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            ShowSkillUI(true);
-        }
+        _isFirstTime = true;
     }
 
     private Attribute RandomAttribute()
@@ -37,13 +32,23 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel ÀÚÃ¼¸¦ °ü¸®ÇÏ´Â Ä
         {
             randomIdx = Random.Range(0, attributeList.Count);
         }
-        while (attributeList[randomIdx].level >= attributeList[randomIdx].maxLevel || IsDuplication(randomIdx)); // ·£´ý ¼Ó¼ºÀ» »Ì¾Ò´Âµ¥ ¸¸¾à ¼Ó¼º¿¡ ÃÖ°í·¹º§ÀÌ¸é ¾Æ´Ò¶§±îÁö ¤¡¤¡
+        // ·£´ý ¼Ó¼ºÀ» »Ì¾Ò´Âµ¥ ¸¸¾à ¼Ó¼º¿¡ ÃÖ°í·¹º§ÀÌ¸é ¾Æ´Ò¶§±îÁö ¤¡¤¡ 
+        while (CheckFirstTime(randomIdx) || attributeList[randomIdx].level >= attributeList[randomIdx].maxLevel || IsDuplication(randomIdx));
 
         _cardIdxList.Add(randomIdx);
         return attributeList[randomIdx];
     }
 
-    private bool IsDuplication(int randomIdx) // ÇÑ¹« ¹Ýº¹ÀÎ´ë¿ä? ¼öÁ¤ÇÏ¼Å¾ß°Ú´Âµ¥¤À¿ë?
+    private bool CheckFirstTime(int randomIdx)
+    {
+        if(_isFirstTime && attributeList[randomIdx] is not Skill)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private bool IsDuplication(int randomIdx) // ¸¸¾à¿¡ °ãÄ¡´Â°Ô ÀÖÀ¸¸é return true
     {
         if (_cardIdxList.Count != 0)
         {
@@ -75,6 +80,10 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel ÀÚÃ¼¸¦ °ü¸®ÇÏ´Â Ä
                 _cardList[i].ClearUI();
             }
         }
+
+        if(_isFirstTime) 
+            _isFirstTime = false;
+
         _backGroundRectTrm.DOLocalMoveY(posY, _duration).SetUpdate(true);
     }
 }

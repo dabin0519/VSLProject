@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8173569071450314396}
   - component: {fileID: 6895559668942631972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BombSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,7 @@ MonoBehaviour:
   _coolTime: 6
   _duration: 0
   _damageAmount: 2
+  skillClip: {fileID: 0}
   _explosionRange: 2
   _increaseRange: 1
   _explosionTime: 1

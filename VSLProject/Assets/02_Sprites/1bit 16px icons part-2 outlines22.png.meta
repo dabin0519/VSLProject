@@ -2071,7 +2071,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1bit 16px icons part-2 outlines22_94
+      name: UI_Hp
       rect:
         serializedVersion: 2
         x: 240
@@ -3877,7 +3877,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1bit 16px icons part-2 outlines22_180
+      name: UI_Shose1
       rect:
         serializedVersion: 2
         x: 288
@@ -3898,7 +3898,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1bit 16px icons part-2 outlines22_181
+      name: UI_Shose
       rect:
         serializedVersion: 2
         x: 312
@@ -7573,7 +7573,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1bit 16px icons part-2 outlines22_356
+      name: UI_Range
       rect:
         serializedVersion: 2
         x: 480
@@ -9261,7 +9261,7 @@ TextureImporter:
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -9375,8 +9375,6 @@ TextureImporter:
       1bit 16px icons part-2 outlines22_178: 1734708054
       1bit 16px icons part-2 outlines22_179: 1316648800
       1bit 16px icons part-2 outlines22_18: -266521065
-      1bit 16px icons part-2 outlines22_180: 1841667987
-      1bit 16px icons part-2 outlines22_181: 113540162
       1bit 16px icons part-2 outlines22_182: 211301136
       1bit 16px icons part-2 outlines22_183: -1772260812
       1bit 16px icons part-2 outlines22_184: 1985190782
@@ -9569,7 +9567,6 @@ TextureImporter:
       1bit 16px icons part-2 outlines22_353: -1345226810
       1bit 16px icons part-2 outlines22_354: -362465187
       1bit 16px icons part-2 outlines22_355: -753032446
-      1bit 16px icons part-2 outlines22_356: 574762187
       1bit 16px icons part-2 outlines22_357: -1238873242
       1bit 16px icons part-2 outlines22_358: 1363809092
       1bit 16px icons part-2 outlines22_359: -1241898833
@@ -9718,14 +9715,17 @@ TextureImporter:
       1bit 16px icons part-2 outlines22_91: -331269540
       1bit 16px icons part-2 outlines22_92: -817685242
       1bit 16px icons part-2 outlines22_93: -1523623952
-      1bit 16px icons part-2 outlines22_94: 12618010
       1bit 16px icons part-2 outlines22_95: 1433540511
       1bit 16px icons part-2 outlines22_96: -903158214
       1bit 16px icons part-2 outlines22_97: -917517327
       1bit 16px icons part-2 outlines22_98: -352490277
       1bit 16px icons part-2 outlines22_99: -1958108571
       UI_Bar: -1096844251
+      UI_Hp: 12618010
+      UI_Range: 574762187
       UI_Rect: 2102242369
+      UI_Shose: 113540162
+      UI_Shose1: 1841667987
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

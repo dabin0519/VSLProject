@@ -22,9 +22,11 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
     [SerializeField] private int _maxListCount;
     [SerializeField] private Transform _skillHolder;
 
+    private PlayerStatSO _playerStat;
+
     public void Initialize(Player player)
     {
-        
+        _playerStat = player.GetCompo<PlayerStat>().PlayerStatProperty;
     }
 
     private void Update()
@@ -60,6 +62,17 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
         if (stat != null)
         {
             // stat을 뭔가 변경해야하는데 음..
+
+            PlayerStatSO playerStatSO = stat.attributeSO as PlayerStatSO;
+            if (playerStatSO != null)
+            {
+                if(stat.level != stat.maxLevel)
+                    _playerStat += playerStatSO;
+            }
+            else
+            {
+                Debug.LogError("Something wrong");
+            }
         }
     }
 
@@ -68,14 +81,14 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
         foreach(var skillInfo in _skillInfoList)
         {
             if (skillInfo.skill.OnSkillPropety) continue;
-            if( skillInfo.coolTime >= skillInfo.skill.CoolTime)
+            if( skillInfo.coolTime <= 0)
             {
                 skillInfo.skill.OnSkill();
-                skillInfo.coolTime = 0;
+                skillInfo.coolTime = skillInfo.skill.CoolTime - _playerStat.timeAccelration;
             }
             else
             {
-                skillInfo.coolTime += Time.deltaTime;
+                skillInfo.coolTime -= Time.deltaTime;
             }
         }
     }

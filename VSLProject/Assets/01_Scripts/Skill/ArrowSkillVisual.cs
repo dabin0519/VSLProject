@@ -37,7 +37,7 @@ public class ArrowSkillVisual : Damage
     {
         if(_onSkill)
         {
-            transform.position += _dir * _moveSpeed * Time.fixedDeltaTime;
+            transform.position += _dir.normalized * _moveSpeed * Time.fixedDeltaTime;
         }
     }
 }

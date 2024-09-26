@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 847178801729955932}
   - component: {fileID: 1575079295770542298}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1659881699873949980}
   - component: {fileID: 8863823309489730037}
   - component: {fileID: 4470998707784524566}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ArrowSkillVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

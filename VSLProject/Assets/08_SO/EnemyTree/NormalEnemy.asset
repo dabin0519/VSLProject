@@ -15,7 +15,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 492801e0ca777844780517dee478c9be
-  position: {x: 204.79997, y: 237.47203}
+  position: {x: 199.99992, y: -113.23995}
   blackBoard:
     moveToPosition: {x: 0, y: 0, z: 0}
     lastSpotPosition: {x: 0, y: 0, z: 0}
@@ -25,7 +25,34 @@ MonoBehaviour:
     testGame: {fileID: 0}
   brain: {fileID: 0}
   description: 
-  child: {fileID: 366964188270591892}
+  child: {fileID: -6543114405473467344}
+--- !u!114 &-6543114405473467344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acdfa1e9f673c4748b7277d0e48c8755, type: 3}
+  m_Name: SequenceNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: dd3de3b40c5b2d3439f1d386d4dbe91d
+  position: {x: 190.40012, y: 36.719997}
+  blackBoard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    lastSpotPosition: {x: 0, y: 0, z: 0}
+    whatIsEnemy:
+      serializedVersion: 2
+      m_Bits: 0
+    testGame: {fileID: 0}
+  brain: {fileID: 0}
+  description: 
+  children:
+  - {fileID: 366964188270591892}
 --- !u!114 &-4254788654558182079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,7 +68,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: a71f2c2e7c3d7724db83d92c675cb77c
-  position: {x: 204.80002, y: -59.40799}
+  position: {x: 199.99992, y: -234.57845}
   blackBoard:
     moveToPosition: {x: 0, y: 0, z: 0}
     lastSpotPosition: {x: 0, y: 0, z: 0}
@@ -51,34 +78,7 @@ MonoBehaviour:
     testGame: {fileID: 0}
   brain: {fileID: 0}
   description: 
-  child: {fileID: -2255646307790839313}
---- !u!114 &-2255646307790839313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acdfa1e9f673c4748b7277d0e48c8755, type: 3}
-  m_Name: SequenceNode
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: 2a0797471c312964ebd4c9717b9c3525
-  position: {x: 195.20001, y: 77.59999}
-  blackBoard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    lastSpotPosition: {x: 0, y: 0, z: 0}
-    whatIsEnemy:
-      serializedVersion: 2
-      m_Bits: 0
-    testGame: {fileID: 0}
-  brain: {fileID: 0}
-  description: 
-  children:
-  - {fileID: -7407646942324660554}
+  child: {fileID: -7407646942324660554}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,9 +102,9 @@ MonoBehaviour:
     testGame: {fileID: 0}
   nodes:
   - {fileID: -4254788654558182079}
-  - {fileID: -2255646307790839313}
   - {fileID: 366964188270591892}
   - {fileID: -7407646942324660554}
+  - {fileID: -6543114405473467344}
 --- !u!114 &366964188270591892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 8bbf0da08430b7a4dbc876ea54ab93c1
-  position: {x: 178.272, y: 373.00748}
+  position: {x: 173.32, y: 193.76}
   blackBoard:
     moveToPosition: {x: 0, y: 0, z: 0}
     lastSpotPosition: {x: 0, y: 0, z: 0}

@@ -3079,7 +3079,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_142
+      name: UI_Time
       rect:
         serializedVersion: 2
         x: 391
@@ -3100,7 +3100,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_143
+      name: UI_Time2
       rect:
         serializedVersion: 2
         x: 415
@@ -6922,7 +6922,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_325
+      name: UI_Damage
       rect:
         serializedVersion: 2
         x: 247
@@ -7258,7 +7258,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_341
+      name: UI_Depense
       rect:
         serializedVersion: 2
         x: 127
@@ -7825,7 +7825,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_368
+      name: UI_axe
       rect:
         serializedVersion: 2
         x: 271
@@ -9417,8 +9417,6 @@ TextureImporter:
       1-bit 16px icons part-1 outlines_14: -2079859967
       1-bit 16px icons part-1 outlines_140: 1985492281
       1-bit 16px icons part-1 outlines_141: 304277010
-      1-bit 16px icons part-1 outlines_142: 593846029
-      1-bit 16px icons part-1 outlines_143: -1407961402
       1-bit 16px icons part-1 outlines_144: 204036557
       1-bit 16px icons part-1 outlines_145: 1950384984
       1-bit 16px icons part-1 outlines_146: 692897821
@@ -9615,7 +9613,6 @@ TextureImporter:
       1-bit 16px icons part-1 outlines_321: -203563777
       1-bit 16px icons part-1 outlines_323: -1811009391
       1-bit 16px icons part-1 outlines_324: -1717302845
-      1-bit 16px icons part-1 outlines_325: 1126892008
       1-bit 16px icons part-1 outlines_326: 273688174
       1-bit 16px icons part-1 outlines_327: -1861679508
       1-bit 16px icons part-1 outlines_328: -23251419
@@ -9632,7 +9629,6 @@ TextureImporter:
       1-bit 16px icons part-1 outlines_339: 1703590309
       1-bit 16px icons part-1 outlines_34: 878212475
       1-bit 16px icons part-1 outlines_340: -1864546367
-      1-bit 16px icons part-1 outlines_341: -1190283105
       1-bit 16px icons part-1 outlines_342: 2055063770
       1-bit 16px icons part-1 outlines_343: 2145594381
       1-bit 16px icons part-1 outlines_344: 1527150540
@@ -9661,7 +9657,6 @@ TextureImporter:
       1-bit 16px icons part-1 outlines_365: 28406320
       1-bit 16px icons part-1 outlines_366: -1580127375
       1-bit 16px icons part-1 outlines_367: 1123094717
-      1-bit 16px icons part-1 outlines_368: -2119969230
       1-bit 16px icons part-1 outlines_369: 1578599989
       1-bit 16px icons part-1 outlines_37: 973413928
       1-bit 16px icons part-1 outlines_371: -699518778
@@ -9806,7 +9801,12 @@ TextureImporter:
       Exp1: -1946878633
       Exp2: 1364351900
       UI_Arrow: -849510404
+      UI_Damage: 1126892008
+      UI_Depense: -1190283105
       UI_Panel: -953260175
+      UI_Time: 593846029
+      UI_Time2: -1407961402
+      UI_axe: -2119969230
       Ui_bomb: 1758532266
       ui_skeletonHead: -1402853845
   mipmapLimitGroupName: 

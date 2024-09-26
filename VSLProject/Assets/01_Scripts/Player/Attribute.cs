@@ -14,6 +14,9 @@ public abstract class Attribute : MonoBehaviour
     {
         _level++;
         if(_level >= maxLevel)
+        {
             _level = maxLevel;
+            return;
+        }
     }
 }

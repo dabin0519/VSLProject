@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
 {
+    [SerializeField] private PoolTypeSO _enemyPoolType;
     [SerializeField] private Transform _playerTrm;
     [SerializeField] private float _spawnDistanceLimitX; 
     [SerializeField] private float _spawnDistanceLimitY;
@@ -49,7 +50,7 @@ public class EnemySpawnManager : MonoBehaviour
         }
         while(CheckSpawnPosInPlayerRange(enemyPos));
 
-        Instantiate(_enemyPrefab, enemyPos, Quaternion.identity);
+        PoolManager.Instance.Pop(_enemyPoolType);
     }
 
     private bool CheckSpawnPosInPlayerRange(Vector3 pos)

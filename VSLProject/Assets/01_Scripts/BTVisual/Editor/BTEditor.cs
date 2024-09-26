@@ -71,7 +71,7 @@ public class BTEditor : EditorWindow
         template.style.flexGrow = 1;
         root.Add(template);
 
-        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/BTVisual/Editor/BTEditor.uss");
+        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/01_Scripts/BTVisual/Editor/BTEditor.uss");
         root.styleSheets.Add(styleSheet);
 
         _treeView = root.Q<BehaviourTreeView>("tree-view");

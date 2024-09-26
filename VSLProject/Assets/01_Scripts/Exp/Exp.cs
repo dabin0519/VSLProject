@@ -10,7 +10,7 @@ public class Exp : MonoBehaviour
     {
         if(collision.TryGetComponent(out PlayerExp playerExp))
         {
-            playerExp.currentExp += expAmount;
+            playerExp.IncreaseExp(expAmount);
             Destroy(gameObject);
         }
     }

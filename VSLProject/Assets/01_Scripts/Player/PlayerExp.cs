@@ -1,45 +1,59 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerExp : MonoBehaviour
+public class PlayerExp : MonoBehaviour, IPlayerComponent
 {
     [SerializeField] private PlayerExpSO _playerExpSO;
     [SerializeField] private ExpBarUI _expBarUI;
+    [SerializeField] private SkillSelectUI _skillSelectUI;
 
     private List<float> _needExpAmountList;
-    public float currentExp;
+    private PlayerStatSO _playerStatSO;
+    private float _currentExp;
+    private float _needExp;
+    private float _beforeNeedExp; // UI 보정 위해서 
+    private int _idx;
 
-    private void Awake()
+    public void Initialize(Player player)
     {
+        PlayerStat playerStat = player.GetCompo<PlayerStat>();
+
+        _playerStatSO = playerStat.PlayerStatProperty;
+
         _needExpAmountList = _playerExpSO.needExpAmountList;
-    }
-
-    private void Start()
-    {
-        _expBarUI.UpdateUI(currentExp, _needExpAmountList[0], 1);
+        _needExp = _needExpAmountList[0];
+        _beforeNeedExp = 0;
+        _idx = 0;
     }
 
     private void Update()
     {
-        CalculateCurrentLevel();
+        _expBarUI.UpdateUI(_currentExp - _beforeNeedExp, _needExp - _beforeNeedExp, _idx + 1);
+        CalculateValue();
     }
 
-    private void CalculateCurrentLevel()
+    private void CalculateValue()
     {
-        for(int i = 0; i < _needExpAmountList.Count; ++i)
+        if(_currentExp >= _needExp)
         {
-            if(currentExp < _needExpAmountList[i])
+            ++_idx;
+            if(_idx == _needExpAmountList.Count) // 인덱스를 넘어갔을경우
             {
-                // 현재 레벨보다 낮다 
-                float exp = currentExp;
-                if(i != 0)
-                {
-                    exp = currentExp - _needExpAmountList[i - 1];
-                }
-                _expBarUI.UpdateUI(currentExp, _needExpAmountList[i], i + 1);
-                break;
+                _expBarUI.MaxLevelUI();
+            }
+            else
+            {
+                _beforeNeedExp = _needExp;
+                _needExp = _needExpAmountList[_idx];
+                _skillSelectUI.ShowSkillUI(true);
             }
         }
+    }
+
+    public void IncreaseExp(float expAmount)
+    {
+        _currentExp += expAmount * _playerStatSO.expMultiplier;
     }
 }

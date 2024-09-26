@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4618758403120229057}
   - component: {fileID: -2236028483986443708}
   - component: {fileID: 6242457464198136820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CircleSkillVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8799698603168378913}
   - component: {fileID: 2392682827196806725}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}

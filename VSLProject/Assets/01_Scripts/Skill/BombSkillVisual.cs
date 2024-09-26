@@ -6,6 +6,7 @@ using UnityEngine;
 public class BombSkillVisual : MonoBehaviour
 {
     [SerializeField] private GameObject _bombEffect;
+    [SerializeField] private LayerMask _whatIsEnemy;
 
     private SpriteRenderer _spriteRenderer;
     private Color _redColor;
@@ -40,13 +41,16 @@ public class BombSkillVisual : MonoBehaviour
         GameObject newObject = Instantiate(_bombEffect, transform.position, Quaternion.identity);
 
         // bomb 
-        RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, explosionRange, Vector2.zero);
-        if(hitInfo.collider != null && hitInfo.collider.TryGetComponent(out IDamageAble damageAble))
+        RaycastHit2D[] hitInfos = Physics2D.CircleCastAll(transform.position, explosionRange, Vector2.zero, _whatIsEnemy);
+        foreach (var hitInfo in hitInfos)
         {
-            damageAble.GetDamage(damageAmout);
+            if (hitInfo.collider != null && hitInfo.collider.TryGetComponent(out IDamageAble damageAble))
+            {
+                damageAble.GetDamage(damageAmout);
+            }
         }
 
-        Destroy(gameObject);
+        Destroy(gameObject, 0.8f);
         Destroy(newObject, 0.8f);
     }
 }
