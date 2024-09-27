@@ -589,11 +589,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _expPrefabList:
-  - expPefab: {fileID: 0}
+  - expPefab: {fileID: 11400000, guid: 5be150618a3bfd944b63d74e24176274, type: 2}
     maxAmount: 5
-  - expPefab: {fileID: 0}
+  - expPefab: {fileID: 11400000, guid: 69a95db35defe264abc3a44bcae31226, type: 2}
     maxAmount: 10
-  - expPefab: {fileID: 0}
+  - expPefab: {fileID: 11400000, guid: b2586a7d98b245746b3b453c3e8fe2b3, type: 2}
     maxAmount: 0
 --- !u!1 &486089333
 GameObject:
