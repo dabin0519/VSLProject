@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct ExpInfo
 {
-    public Exp expPefab;
+    public PoolTypeSO expPefab;
     public float maxAmount;
 }
 
@@ -15,13 +15,14 @@ public class SpawnExpSystem : MonoSingleton<SpawnExpSystem>
 
     public void SpawnExp(Vector3 spawnPos, float expAmount)
     {
-        Exp newExp = Instantiate(GetCorrectExpPrefab(expAmount), spawnPos, Quaternion.identity);
-        newExp.expAmount = expAmount;
+        var newExp = PoolManager.Instance.Pop(GetCorrectExpPrefab(expAmount));
+        newExp.GameObject.transform.position = spawnPos;
+        newExp.GameObject.GetComponent<Exp>().expAmount = expAmount;
     }
 
-    private Exp GetCorrectExpPrefab(float expAmount)
+    private PoolTypeSO GetCorrectExpPrefab(float expAmount)
     {
-        Exp currentExp = null;
+        PoolTypeSO currentExp = null;
         int cnt = _expPrefabList.Count;
 
         for (int i = 0; i < _expPrefabList.Count; ++i)

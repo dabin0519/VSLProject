@@ -475,7 +475,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_18
+      name: UI_Circle
       rect:
         serializedVersion: 2
         x: 439
@@ -9455,7 +9455,6 @@ TextureImporter:
       1-bit 16px icons part-1 outlines_177: -1847016099
       1-bit 16px icons part-1 outlines_178: 798606806
       1-bit 16px icons part-1 outlines_179: 1267235649
-      1-bit 16px icons part-1 outlines_18: -1363160352
       1-bit 16px icons part-1 outlines_180: 155785791
       1-bit 16px icons part-1 outlines_181: 1394815014
       1-bit 16px icons part-1 outlines_182: 1469898332
@@ -9801,6 +9800,7 @@ TextureImporter:
       Exp1: -1946878633
       Exp2: 1364351900
       UI_Arrow: -849510404
+      UI_Circle: -1363160352
       UI_Damage: 1126892008
       UI_Depense: -1190283105
       UI_Panel: -953260175

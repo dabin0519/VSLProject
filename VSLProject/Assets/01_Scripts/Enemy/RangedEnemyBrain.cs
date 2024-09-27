@@ -8,8 +8,7 @@ public class RangedEnemyBrain : EnemyBrain
     [SerializeField] private float _coolTime;
     [SerializeField] private int _attackTime = 3; // 한번에 공격 한느 수
 
-    private Vector3 _moveDir;
-    private bool _canAttack;
+    private bool _canAttack; 
     private float _lastAttackTime;
 
     public override void Attack(System.Action AttackFinishEvent)

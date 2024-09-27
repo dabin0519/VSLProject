@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d0235d18beaea847800ae6a8d171483, type: 3}
-  m_Name: Enemy
+  m_Name: HeavyEnemy
   m_EditorClassIdentifier: 
-  poolType: {fileID: 11400000, guid: 5400bf92362dfb249b006a4c032996fb, type: 2}
-  prefab: {fileID: 4552903792504598644, guid: 265898a78f7d25f4eb4f8bdf7fc31817, type: 3}
-  initCount: 100
+  poolType: {fileID: 11400000, guid: 84b90a8c69efa1f49addd36663a86591, type: 2}
+  prefab: {fileID: 4552903792504598644, guid: 1520fb9abe10660429dd78d559224913, type: 3}
+  initCount: 10

@@ -5,8 +5,7 @@ using UnityEngine;
 public class GhostEffect : MonoBehaviour
 {
     [SerializeField] private float _ghostDelay;
-    [SerializeField] private GameObject _ghostObject;
-    [SerializeField] private float _ghostDuration;
+    [SerializeField] private PoolTypeSO _ghostType;
 
     public bool spawnGhost;
 
@@ -31,12 +30,12 @@ public class GhostEffect : MonoBehaviour
         }
         else
         {
-            GameObject currentGhost = Instantiate(_ghostObject, transform.position, transform.rotation);
+            var ghost = PoolManager.Instance.Pop(_ghostType);
             Sprite currentSprite = _playerSpriteRenderer.sprite;
-            currentGhost.GetComponent<SpriteRenderer>().sprite = currentSprite;
-            currentGhost.GetComponent<SpriteRenderer>().flipX = _playerSpriteRenderer.flipX;
+            ghost.GameObject.transform.position = transform.position;
+            ghost.GameObject.GetComponent<SpriteRenderer>().sprite = currentSprite;
+            ghost.GameObject.GetComponent<SpriteRenderer>().flipX = _playerSpriteRenderer.flipX;
             _ghostDelaySeconds = _ghostDelay;
-            Destroy(currentGhost, _ghostDuration);
         }
     }
 }
