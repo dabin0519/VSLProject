@@ -5,6 +5,7 @@ using UnityEngine;
 public class ArrowSkillVisual : Damage
 {
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _offsetAngle;
 
     private Vector3 _dir;
     private bool _onSkill;
@@ -21,9 +22,13 @@ public class ArrowSkillVisual : Damage
 
     public void Init(Vector3 mouseDir)
     {
-        _dir = mouseDir;
+        _dir = mouseDir.normalized;
         _onSkill = true;
+        float angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
+        angle += _offsetAngle;
+
         transform.position = _playerTrm.position;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
         _spriteRenderer.enabled = true;
     }
 

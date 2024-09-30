@@ -26,9 +26,11 @@ public class SkillCardUI : MonoBehaviour // 스킬 icon 이름 설명등을 관리하는 UI 
         _rectTransform = GetComponent<RectTransform>();
     }
 
-    public void ShowUI(AttributeInfo info, Attribute attribute)
+    public void ShowUI(Attribute attribute)
     {
         _attribute = attribute;
+
+        AttributeInfo info = attribute.attributeSO.AttributeInfo;
 
         _skillIcon.sprite = info.icon;
         _skillName.text = info.name;

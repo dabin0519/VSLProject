@@ -23,16 +23,16 @@ public class InfinityTileMap : MonoBehaviour
 
     private void Update()
     {
-        float dirX = (int)_inputReader.Movement.x;
-        float dirY = (int)_inputReader.Movement.y;
-
         if (Mathf.Abs(transform.position.x - _playerTrm.position.x) > _limitXDistance)
         {
-            transform.Translate(Vector2.right * dirX * 40);
+            float offsetX = (_playerTrm.position.x - transform.position.x) > 0 ? _limitXDistance : -_limitXDistance;
+            transform.position += new Vector3(offsetX * 2, 0);
         }
+
         if (Mathf.Abs(transform.position.y - _playerTrm.position.y) > _limitYDistance)
         {
-            transform.Translate(Vector2.up * dirY * 24);
+            float offsetY = (_playerTrm.position.y - transform.position.y) > 0 ? _limitYDistance : -_limitYDistance;
+            transform.position += new Vector3(0, offsetY * 2);
         }
     }
 }

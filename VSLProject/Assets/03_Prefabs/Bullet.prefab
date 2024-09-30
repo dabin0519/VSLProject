@@ -225,6 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 5
   _offsetAngle: 0
+  <PoolType>k__BackingField: {fileID: 11400000, guid: 0f5317890b25fc94d89dc20878504929, type: 2}
 --- !u!1 &4612372256583967612
 GameObject:
   m_ObjectHideFlags: 0

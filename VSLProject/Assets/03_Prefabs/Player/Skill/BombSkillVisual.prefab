@@ -49,6 +49,8 @@ MonoBehaviour:
   _whatIsEnemy:
     serializedVersion: 2
     m_Bits: 512
+  _explosionTime: 1
+  <PoolType>k__BackingField: {fileID: 11400000, guid: f7c82a4dfc7f0874982bacb311e7f544, type: 2}
 --- !u!1 &4566931944348409435
 GameObject:
   m_ObjectHideFlags: 0

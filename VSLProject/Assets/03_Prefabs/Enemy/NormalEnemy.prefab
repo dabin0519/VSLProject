@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f84599f547870524b9ad956bc5704947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3.5
   _damage: 0.5
   target: {fileID: 0}
   <PoolType>k__BackingField: {fileID: 11400000, guid: 5400bf92362dfb249b006a4c032996fb, type: 2}

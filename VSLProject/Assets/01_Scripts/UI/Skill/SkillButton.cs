@@ -14,7 +14,11 @@ public class SkillButton : ButtonController
         base.Awake();
 
         _skillCardUI = GetComponent<SkillCardUI>();
-        _playerAttribute = FindObjectOfType<PlayerAttribute>();
+    }
+
+    private void Start()
+    {
+        _playerAttribute = GameManager.Instance.Player.GetCompo<PlayerAttribute>();
     }
 
     public override void Click()

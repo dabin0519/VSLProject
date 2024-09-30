@@ -3,14 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombSkillVisual : MonoBehaviour
+public class BombSkillVisual : MonoBehaviour, IPoolable
 {
     [SerializeField] private GameObject _bombEffect;
     [SerializeField] private LayerMask _whatIsEnemy;
+    [SerializeField] private float _explosionTime; // 폭발까지 걸리는 시간
+
+    [field: SerializeField] public PoolTypeSO PoolType { get; private set; }
+
+    public GameObject GameObject => gameObject;
 
     private SpriteRenderer _spriteRenderer;
     private Color _redColor;
     private Color _defaultColor;
+    private Pool _myPool;
 
     private void Awake()
     {
@@ -19,12 +25,12 @@ public class BombSkillVisual : MonoBehaviour
         _defaultColor = _spriteRenderer.color;
     }
 
-    public void OnSkill(float explosionRange, float explosionTime, float damageAmout)
+    public void OnSkill(float explosionRange, float damageAmount)
     {
-        StartCoroutine(BombCoroutine(explosionRange, explosionTime, damageAmout));
+        StartCoroutine(BombCoroutine(explosionRange, _explosionTime, damageAmount));
     }
 
-    private IEnumerator BombCoroutine(float explosionRange, float explosionTime, float damageAmout)
+    private IEnumerator BombCoroutine(float explosionRange, float explosionTime, float damageAmount)
     {
         int cnt = 3;
 
@@ -34,9 +40,11 @@ public class BombSkillVisual : MonoBehaviour
             _spriteRenderer.DOColor(_redColor, time).OnComplete(() =>
             {
                 _spriteRenderer.DOColor(_defaultColor, time);
-            });
+            }); 
             yield return new WaitForSeconds(time * 2);
         }
+        yield return new WaitForSeconds(0.2f);
+        _spriteRenderer.enabled = false;
 
         GameObject newObject = Instantiate(_bombEffect, transform.position, Quaternion.identity);
 
@@ -44,13 +52,23 @@ public class BombSkillVisual : MonoBehaviour
         RaycastHit2D[] hitInfos = Physics2D.CircleCastAll(transform.position, explosionRange, Vector2.zero, _whatIsEnemy);
         foreach (var hitInfo in hitInfos)
         {
-            if (hitInfo.collider != null && hitInfo.collider.TryGetComponent(out IDamageAble damageAble))
+            if (hitInfo.collider != null && (hitInfo.collider.gameObject.CompareTag("Player") == false) && hitInfo.collider.TryGetComponent(out IDamageAble damageAble))
             {
-                damageAble.GetDamage(damageAmout);
+                damageAble.GetDamage(damageAmount);
             }
         }
+        yield return new WaitForSeconds(0.8f);
+        _myPool.Push(this);
+        Destroy(newObject);
+    }
 
-        Destroy(gameObject, 0.8f);
-        Destroy(newObject, 0.8f);
+    public void SetUpPool(Pool pool)
+    {
+        _myPool = pool;
+    }
+
+    public void ResetItem()
+    {
+        
     }
 }

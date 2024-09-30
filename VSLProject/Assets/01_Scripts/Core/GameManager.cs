@@ -7,10 +7,12 @@ public class GameManager : MonoSingleton<GameManager>
 {
     public event Action GameStartEvent;
     public Transform PlayerTrm { get; private set; }
+    public Player Player { get; private set; }
 
     private void Awake()
     {
         PlayerTrm = GameObject.Find("Player").transform;
+        Player = PlayerTrm.GetComponent<Player>();
     }
 
     private void Start()

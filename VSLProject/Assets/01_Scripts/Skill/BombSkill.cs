@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class BombSkill : Skill
 {
+    [SerializeField] private PoolTypeSO _bombType;
     [SerializeField] private float _explosionRange; // 폭발 범위
     [SerializeField] private float _increaseRange; // 레벨업시 커질 범위
-    [SerializeField] private float _explosionTime; // 폭발까지 걸리는 시간
-    [SerializeField] private BombSkillVisual _bombPrefab;
 
     public override void OnSkill()
     {
@@ -19,8 +18,9 @@ public class BombSkill : Skill
 
     private void SpawnBomb()
     {
-        BombSkillVisual newBomb = Instantiate(_bombPrefab, _playerTrm.position, Quaternion.identity);
-        newBomb.OnSkill(_explosionRange, _explosionTime, _damageAmount);
+        var newBomb = PoolManager.Instance.Pop(_bombType);
+        newBomb.GameObject.transform.position = _playerTrm.position;
+        newBomb.GameObject.GetComponent<BombSkillVisual>().OnSkill(_explosionRange, _damageAmount);
     }
 
     public override void OffSkill()

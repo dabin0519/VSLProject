@@ -9,6 +9,7 @@ using static Controls;
 public class InputReader : ScriptableObject, IPlayerActions, IPlayerComponent
 {
     public Vector2 Movement { get; private set; }
+    public event Action TabEvent;
 
     private Controls _playerInputAction;
     private Player _player;
@@ -32,6 +33,19 @@ public class InputReader : ScriptableObject, IPlayerActions, IPlayerComponent
     public void OnMovement(InputAction.CallbackContext context)
     {
         Movement = context.ReadValue<Vector2>();
+    }   
+
+    public void OnTab(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            TabEvent?.Invoke();
+        }
+    }
+
+    public void OnEsc(InputAction.CallbackContext context)
+    {
+        
     }
 }
 

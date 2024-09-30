@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -22,11 +23,13 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
     [SerializeField] private int _maxListCount;
     [SerializeField] private Transform _skillHolder;
 
-    private PlayerStatSO _playerStat;
+    private PlayerStatSO _playerStatSO;
+    private PlayerStat _playerStat;
 
     public void Initialize(Player player)
     {
-        _playerStat = player.GetCompo<PlayerStat>().PlayerStatProperty;
+        _playerStat = player.GetCompo<PlayerStat>();
+        _playerStatSO = _playerStat.PlayerStatProperty;
     }
 
     private void Update()
@@ -46,19 +49,22 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
 
             foreach(var skillInfo in _skillInfoList)
             {
-                if (skillInfo.skill == skill)
-                {
+                if (skillInfo.skill == skill && skill.level != skill.maxLevel)
+                { 
                     skill.LevelUp();
+                    UIController.Instance.InfoUIProp.SkillUILevelUP(skill.attributeSO.AttributeInfo.icon);
                     checker = false;
                     break;
                 }
             }
+
             if (checker)
             {
                 AddSkill(skill);
+                UIController.Instance.InfoUIProp.SkillUIInit(skill.attributeSO.AttributeInfo.icon);
             }    
         }
-        Stat stat = attribute as Stat;
+        Stat stat = attribute as Stat; 
         if (stat != null)
         {
             // stat을 뭔가 변경해야하는데 음..
@@ -67,7 +73,9 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
             if (playerStatSO != null)
             {
                 if(stat.level != stat.maxLevel)
-                    _playerStat += playerStatSO;
+                {
+                    _playerStat.ModifierStat(playerStatSO);
+                }
             }
             else
             {
@@ -84,7 +92,7 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
             if( skillInfo.coolTime <= 0)
             {
                 skillInfo.skill.OnSkill();
-                skillInfo.coolTime = skillInfo.skill.CoolTime - _playerStat.timeAccelration;
+                skillInfo.coolTime = skillInfo.skill.CoolTime - _playerStatSO.coolDown;
             }
             else
             {

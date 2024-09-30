@@ -51,7 +51,6 @@ MonoBehaviour:
   _duration: 0
   _damageAmount: 2
   skillClip: {fileID: 0}
+  _bombType: {fileID: 11400000, guid: f7c82a4dfc7f0874982bacb311e7f544, type: 2}
   _explosionRange: 2
   _increaseRange: 1
-  _explosionTime: 1
-  _bombPrefab: {fileID: 2467327762119371632, guid: c133278efa8e2904f8e02cfb93f37960, type: 3}

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class RangedEnemyBrain : EnemyBrain
 {
-    [SerializeField] private Bullet _bulletPrefab;
     [SerializeField] private float _coolTime;
     [SerializeField] private int _attackTime = 3; // 한번에 공격 한느 수
+    [SerializeField] private PoolTypeSO _bullet;
 
     private bool _canAttack; 
     private float _lastAttackTime;
@@ -37,9 +37,10 @@ public class RangedEnemyBrain : EnemyBrain
 
     private void Attack()
     {
-        Bullet newBullet = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
-        newBullet.Init(target.transform.position - transform.position, _damage);
-        Destroy(newBullet.gameObject, 2f);
+        var newBullet = PoolManager.Instance.Pop(_bullet);
+        newBullet.GameObject.transform.position = transform.position;
+        Bullet bullet = newBullet as Bullet;
+        bullet.Init(target.transform.position - transform.position, _damage);
     }
 
     public override void ResetItem()

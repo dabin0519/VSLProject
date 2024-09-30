@@ -313,13 +313,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa16d079be2a7474a84c5566db4fc094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3.5
+  moveSpeed: 2.5
   _damage: 0.5
   target: {fileID: 0}
-  <PoolType>k__BackingField: {fileID: 11400000, guid: 5400bf92362dfb249b006a4c032996fb, type: 2}
-  _bulletPrefab: {fileID: -6568277433476638141, guid: 9cc0ad131f024ec4baf190e493571427, type: 3}
+  <PoolType>k__BackingField: {fileID: 11400000, guid: a84fa5acfcff1064ba96477bd664eff4, type: 2}
   _coolTime: 2
   _attackTime: 3
+  _bullet: {fileID: 11400000, guid: 0f5317890b25fc94d89dc20878504929, type: 2}
 --- !u!114 &3334944242024179323
 MonoBehaviour:
   m_ObjectHideFlags: 0

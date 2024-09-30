@@ -1,0 +1,457 @@
+fileFormatVersion: 2
+guid: 8afb3572f10914a4cac027d40f293f0b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dice_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 167f9e4381f375f47a3521a86fcb176d
+      internalID: 1483648808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dice_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1f3034d77ba1354ab1751eddc8f173e
+      internalID: 1951724370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dice_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd2f6ee68957bc4eb86c16c3affc4cc
+      internalID: 680049862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dice_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ff76b99c49cace46be427c2c2ad1e01
+      internalID: 1652402041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dice_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a7c3ec59ed8ab4d80fbb8a240bb144
+      internalID: 155356083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dice_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de61f3f30891af54cafb90bbb67ebd01
+      internalID: 1402210158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rolldice_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8add2a3362cf0f4090836ed4394de1c
+      internalID: 1696683955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rolldice_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae647face24fb948b566d43825aedba
+      internalID: 550182122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rolldice_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e8ffe7af2089634db3f9ce97c0388a3
+      internalID: -1119993591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rolldice_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4e51abe80dab14f9b1fce16d919de1
+      internalID: 197045493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rolldice_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b93d561b7f7bab45a960f17cf5f42f2
+      internalID: 341143867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rolldice_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06f86c587c70f0648a26bca1c237f969
+      internalID: 158330395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Dice_0: 1483648808
+      Dice_1: 1951724370
+      Dice_2: 680049862
+      Dice_3: 1652402041
+      Dice_4: 155356083
+      Dice_5: 1402210158
+      rolldice_0: 1696683955
+      rolldice_1: 550182122
+      rolldice_2: -1119993591
+      rolldice_3: 197045493
+      rolldice_4: 341143867
+      rolldice_5: 158330395
+      six sided die_10: -1427642635
+      six sided die_11: 2060027029
+      six sided die_12: 735191966
+      six sided die_13: 1992033008
+      six sided die_14: 845462376
+      six sided die_15: -220295280
+      six sided die_16: 215384644
+      six sided die_17: 379008768
+      six sided die_18: -680913344
+      six sided die_19: 1612385156
+      six sided die_20: 714893964
+      six sided die_21: -497216437
+      six sided die_22: 970853967
+      six sided die_23: 840888517
+      six sided die_24: -201813486
+      six sided die_25: -1164238588
+      six sided die_26: 128192038
+      six sided die_27: -1422345681
+      six sided die_28: 913415402
+      six sided die_29: 246805638
+      six sided die_30: -71778771
+      six sided die_31: 249829738
+      six sided die_32: -751343253
+      six sided die_33: -1111970189
+      six sided die_34: -1874171390
+      six sided die_35: 2070704043
+      six sided die_36: 1386072685
+      six sided die_37: -1441707429
+      six sided die_38: 1908215326
+      six sided die_39: 1084913676
+      six sided die_40: -1942201792
+      six sided die_41: 815343920
+      six sided die_42: 2132153516
+      six sided die_43: -1082173022
+      six sided die_44: 1450663675
+      six sided die_45: -1587613340
+      six sided die_46: 971774243
+      six sided die_47: -361191944
+      six sided die_48: -702763225
+      six sided die_49: -52789326
+      six sided die_50: 752371049
+      six sided die_51: 1829904889
+      six sided die_52: -914700186
+      six sided die_53: 750926428
+      six sided die_54: -1540691810
+      six sided die_55: 1169227598
+      six sided die_56: -192966364
+      six sided die_57: 1867999463
+      six sided die_58: 530079585
+      six sided die_59: 1045113136
+      six sided die_6: -1502959493
+      six sided die_60: -520133814
+      six sided die_61: 1462994149
+      six sided die_62: -741211093
+      six sided die_63: -553914427
+      six sided die_64: 1547222177
+      six sided die_65: 153704612
+      six sided die_66: 307301010
+      six sided die_67: -1186912881
+      six sided die_68: 1732361177
+      six sided die_69: 2123139101
+      six sided die_7: -1042446325
+      six sided die_70: 1794520972
+      six sided die_71: -132245145
+      six sided die_72: 1397884357
+      six sided die_73: 116592883
+      six sided die_74: -1468299089
+      six sided die_75: -1529676401
+      six sided die_76: 425314408
+      six sided die_77: 1593860804
+      six sided die_78: 665529699
+      six sided die_79: -549085129
+      six sided die_8: 265889392
+      six sided die_80: 167859970
+      six sided die_81: -391466626
+      six sided die_82: 1727537573
+      six sided die_83: -1382552861
+      six sided die_9: 2088045810
+      six sided die_90: 1584546177
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

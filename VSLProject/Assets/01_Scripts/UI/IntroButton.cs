@@ -17,6 +17,8 @@ public class IntroButton : ButtonController
     {
         base.Click();
 
+        _rectTransform = null;
+
         SceneController.Instance.LoadScene(_sceneIdx);
     }
 
@@ -30,11 +32,13 @@ public class IntroButton : ButtonController
 
     public override void OnPointerEnter(PointerEventData eventData)
     {
-        _rectTransform.DOScale(_currentScale * _scaleValue, _duration);
+        if(_rectTransform != null)
+            _rectTransform.DOScale(_currentScale * _scaleValue, _duration);
     }
 
     public override void OnPointerExit(PointerEventData eventData)
     {
-        _rectTransform.DOScale(_currentScale, _duration);
+        if(_rectTransform != null)
+            _rectTransform.DOScale(_currentScale, _duration);
     }
 }

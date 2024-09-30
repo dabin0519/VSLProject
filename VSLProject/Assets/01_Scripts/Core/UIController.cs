@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIController : MonoBehaviour
+public class UIController : MonoSingleton<UIController>
 {
     [SerializeField] private SkillSelectUI _skillSelectUI;
+    [SerializeField] private InfoUI _infoUI;
 
-    private void Awake()
+    public InfoUI InfoUIProp => _infoUI;
+
+    private void Start()
     {
         GameManager.Instance.GameStartEvent += SettingSelectUI;
+        GameManager.Instance.Player.GetCompo<InputReader>().TabEvent += OnInfoPaenel;
+    }
+
+    private void OnInfoPaenel()
+    {
+        _infoUI.ShowInfoUI();
     }
 
     private void SettingSelectUI()

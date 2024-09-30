@@ -15,17 +15,16 @@ public class PlayerStat : MonoBehaviour, IPlayerComponent
     {
         _player = player;
 
-        Init();
-    }
-
-    private void Init()
-    {
-        _playerStat = Instantiate(_playerDefaultStat); 
+        _playerDefaultStat.InitDictionary();
+        _playerStat = Instantiate(_playerDefaultStat);
+        _playerStat.InitDictionary();
     }
 
     public void ModifierStat(PlayerStatSO statSO) 
     {
         _playerStat += statSO;
+        _playerStat.UpdateStatDictionary();
+        UIController.Instance.InfoUIProp.UpdateStatUI(_playerDefaultStat, _playerStat);
     }
 
     // StatClone을 만들어서 Modifier 기능이 들어오면
