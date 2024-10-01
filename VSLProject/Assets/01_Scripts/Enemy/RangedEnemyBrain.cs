@@ -40,7 +40,7 @@ public class RangedEnemyBrain : EnemyBrain
         var newBullet = PoolManager.Instance.Pop(_bullet);
         newBullet.GameObject.transform.position = transform.position;
         Bullet bullet = newBullet as Bullet;
-        bullet.Init(target.transform.position - transform.position, _damage);
+        bullet.Init(target.transform.position - transform.position, _damage, true, 2f);
     }
 
     public override void ResetItem()

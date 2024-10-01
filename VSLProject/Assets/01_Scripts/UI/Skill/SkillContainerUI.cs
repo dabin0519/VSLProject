@@ -28,5 +28,6 @@ public class SkillContainerUI : MonoBehaviour
     public void LevelUP()
     {
         _levelImageList[_imageIndex].color = Color.black; 
+        _imageIndex++;
     }
 }

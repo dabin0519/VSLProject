@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d0235d18beaea847800ae6a8d171483, type: 3}
-  m_Name: Dice
+  m_Script: {fileID: 11500000, guid: 31ad6b49345b9254184299909a38815d, type: 3}
+  m_Name: DiceVisualType
   m_EditorClassIdentifier: 
-  poolType: {fileID: 11400000, guid: 6f3d1cf56f934e94dbd954f9c8c5424b, type: 2}
-  prefab: {fileID: 3841259113032429255, guid: 93594485d77351043ba974af7f02e0b1, type: 3}
-  initCount: 2
+  typeName: DiceType

@@ -10,13 +10,15 @@ public class Bullet : MonoBehaviour, IPoolable
 
     public GameObject GameObject => gameObject;
     
-    private Vector3 _moveDir;
+    protected Vector3 _moveDir;
     private float _damage;
     private CircleCollider2D _circleCollider;
     private TrailRenderer _trailRenderer;
     private float _startTime;
     private float _spawnTime;
+    private bool _playerAttack;
     private Pool _myPool;
+    private float _duration;
 
     private void Awake()
     {
@@ -25,15 +27,26 @@ public class Bullet : MonoBehaviour, IPoolable
         _startTime = Time.time;
     }
 
-    public void Init(Vector2 dir, float damage)
+    public void Init(Vector2 dir, float damage, bool playerAttack, float duration)
     {
         _spawnTime = Time.time;
-        _damage = damage;
         _moveDir = dir.normalized;
+        _damage = damage;
+        _playerAttack = playerAttack;
+        _duration = duration;
+
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         angle += _offsetAngle;
 
         transform.rotation = Quaternion.Euler(0,0, angle);
+    }
+
+    public Vector2 RandomDir()
+    {
+        float angle = Random.Range(0f, 360f);
+        Vector2 dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+
+        return dir.normalized;
     }
 
     private void FixedUpdate()
@@ -46,7 +59,7 @@ public class Bullet : MonoBehaviour, IPoolable
             _circleCollider.isTrigger = true;
         }
         
-        if(Time.time - _spawnTime > 2f)
+        if(Time.time - _spawnTime > _duration)
         {
             _myPool.Push(this);
         }
@@ -54,9 +67,16 @@ public class Bullet : MonoBehaviour, IPoolable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") && collision.TryGetComponent(out IDamageAble damageAble))
+        if(collision.TryGetComponent(out IDamageAble damageAble))
         {
-            damageAble.GetDamage(_damage);
+            if(_playerAttack && collision.CompareTag("Player"))
+            {
+                damageAble.GetDamage(_damage);
+            }
+            else if(!_playerAttack && !collision.CompareTag("Player"))
+            {
+                damageAble.GetDamage(_damage);
+            }
         }
     }
 

@@ -22,7 +22,6 @@ public abstract class Skill : Attribute
 
     protected virtual void Awake()
     {
-        _playerTrm = GameManager.Instance.PlayerTrm;
         _currentDuration = _duration;
 
         _time = _duration;
@@ -30,6 +29,8 @@ public abstract class Skill : Attribute
 
     protected void Start()
     {
+        _playerTrm = GameManager.Instance.PlayerTrm;
+        Debug.Log(_playerTrm);
         _playerStat = _playerTrm.GetComponent<Player>().GetCompo<PlayerStat>().PlayerStatProperty;
     }
 
