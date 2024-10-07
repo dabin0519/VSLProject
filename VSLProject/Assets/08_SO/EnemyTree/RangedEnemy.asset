@@ -300,7 +300,7 @@ MonoBehaviour:
     testGame: {fileID: 0}
   brain: {fileID: 0}
   description: 
-  runDistance: 7
+  runDistance: 5
 --- !u!114 &6866892060182859567
 MonoBehaviour:
   m_ObjectHideFlags: 0

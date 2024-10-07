@@ -78,7 +78,7 @@ public class DiceSkillVisual : MonoBehaviour, IPoolable
         for (int i = 0; i < idx; i++)
         {
             var newBullet = PoolManager.Instance.Pop(_bulletType);
-            Bullet bullet = newBullet as Bullet;
+            Bullet bullet = newBullet as ReflectiveBullet;
             bullet.transform.position = transform.position;
             bullet.Init(bullet.RandomDir(), _damageAmount, true, 1f);
         }

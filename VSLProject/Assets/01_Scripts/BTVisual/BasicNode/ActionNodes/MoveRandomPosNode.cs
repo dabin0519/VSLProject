@@ -33,7 +33,6 @@ namespace BTVisual
             Vector2 currentPos = brain.transform.position;
 
             float distance = Vector2.Distance(currentPos, brain.target.transform.position);
-            Debug.Log(distance);
 
             if (distance > runDistance)
             {

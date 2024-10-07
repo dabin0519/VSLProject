@@ -9,6 +9,9 @@ public class GameManager : MonoSingleton<GameManager>
     public Transform PlayerTrm { get; private set; }
     public Player Player { get; private set; }
 
+    [Header("--Game Info--")]
+    public int killCnt;
+
     private void Awake()
     {
         PlayerTrm = GameObject.Find("Player").transform;

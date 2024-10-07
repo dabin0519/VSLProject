@@ -8,7 +8,7 @@ public abstract class Skill : Attribute
     [SerializeField] protected float _duration; // 스킬 지속시간
     [SerializeField] protected float _damageAmount;
 
-    protected Transform _playerTrm;
+    protected Transform _playerTrm => GameManager.Instance.PlayerTrm;
 
     public float CoolTime => _coolTime;
     public float DamageAmount => _damageAmount;
@@ -28,9 +28,7 @@ public abstract class Skill : Attribute
     }
 
     protected void Start()
-    {
-        _playerTrm = GameManager.Instance.PlayerTrm;
-        Debug.Log(_playerTrm);
+    { 
         _playerStat = _playerTrm.GetComponent<Player>().GetCompo<PlayerStat>().PlayerStatProperty;
     }
 

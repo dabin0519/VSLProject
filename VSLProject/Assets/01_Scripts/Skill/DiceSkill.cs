@@ -7,6 +7,7 @@ public class DiceSkill : SpawnSkill
     public override void InitObject(GameObject newObj)
     {
         Debug.Log(_playerTrm);
+        Debug.Log(newObj);
         newObj.transform.position = _playerTrm.position;
         newObj.GetComponent<DiceSkillVisual>().Init(_damageAmount);
     }

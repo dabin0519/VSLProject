@@ -129,5 +129,5 @@ MonoBehaviour:
   - {fileID: 1402210158, guid: 8afb3572f10914a4cac027d40f293f0b, type: 3}
   _dropDistance: 1
   _power: 1.5
-  <PoolType>k__BackingField: {fileID: 11400000, guid: 6f3d1cf56f934e94dbd954f9c8c5424b, type: 2}
+  <PoolType>k__BackingField: {fileID: 11400000, guid: b11dbb608e6dec8488ebcb0244e85423, type: 2}
   _bulletType: {fileID: 11400000, guid: 6a943ec5116649643a6b64a23e548d5b, type: 2}
