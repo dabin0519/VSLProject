@@ -2113,7 +2113,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_96
+      name: UI_Item
       rect:
         serializedVersion: 2
         x: 295
@@ -4738,7 +4738,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-bit 16px icons part-1 outlines_221
+      name: UI_Heal
       rect:
         serializedVersion: 2
         x: 271
@@ -9501,7 +9501,6 @@ TextureImporter:
       1-bit 16px icons part-1 outlines_219: -2133715428
       1-bit 16px icons part-1 outlines_22: -227816473
       1-bit 16px icons part-1 outlines_220: 403660791
-      1-bit 16px icons part-1 outlines_221: -1018462395
       1-bit 16px icons part-1 outlines_222: 837568335
       1-bit 16px icons part-1 outlines_223: 1489723425
       1-bit 16px icons part-1 outlines_224: -907172444
@@ -9790,7 +9789,6 @@ TextureImporter:
       1-bit 16px icons part-1 outlines_93: -1624533118
       1-bit 16px icons part-1 outlines_94: 44473267
       1-bit 16px icons part-1 outlines_95: -1246660694
-      1-bit 16px icons part-1 outlines_96: 590785298
       1-bit 16px icons part-1 outlines_97: -1412317195
       1-bit 16px icons part-1 outlines_98: -37048511
       1-bit 16px icons part-1 outlines_99: -897211310
@@ -9803,6 +9801,8 @@ TextureImporter:
       UI_Damage: 1126892008
       UI_Depense: -1190283105
       UI_Dice: 1386841532
+      UI_Heal: -1018462395
+      UI_Item: 590785298
       UI_Panel: -953260175
       UI_Time: 593846029
       UI_Time2: -1407961402

@@ -58,7 +58,7 @@ public class BombSkillVisual : MonoBehaviour, IPoolable
             }
         }
         yield return new WaitForSeconds(0.8f);
-        _myPool.Push(this);
+        PoolManager.Instance.Push(this);
         Destroy(newObject);
     }
 

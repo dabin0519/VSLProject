@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0235d18beaea847800ae6a8d171483, type: 3}
+  m_Name: HealItem
+  m_EditorClassIdentifier: 
+  poolType: {fileID: 11400000, guid: f1e9edd122ec0d24e909030abdace93e, type: 2}
+  prefab: {fileID: 6136530990990412049, guid: 68424ca93e26d99499333316332ee2d3, type: 3}
+  initCount: 2

@@ -9,6 +9,8 @@ public class PlayerHealth : HealthSystem, IPlayerComponent
     private PlayerAnimation _playerAnimation;
     private PlayerStatSO _playerStat;
 
+    public bool isInvincibility;
+
     public void Initialize(Player player)
     {
         _player = player;
@@ -25,9 +27,18 @@ public class PlayerHealth : HealthSystem, IPlayerComponent
 
     protected override void OnDamage(float damage)
     {
+        if (isInvincibility) return;
+
         base.OnDamage(damage);
 
         _playerAnimation.OnDamageAnimation();
+    }
+
+    public void Heal(float heal)
+    {
+        _currentHp += heal;
+
+        _hpBarUI.UpdateUI(_currentHp, _maxHp);
     }
 
     public override void OnDie()
