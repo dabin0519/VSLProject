@@ -28227,7 +28227,7 @@ MonoBehaviour:
   _spawnDistanceLimitY: 6
   _spawnPosOffset: 0.5
   _spawnAmount: 1
-  _spawnCoolTime: 3
+  _spawnCoolTime: 5
 --- !u!1 &2126785531
 GameObject:
   m_ObjectHideFlags: 0

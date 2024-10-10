@@ -27,6 +27,7 @@ public class BombSkillVisual : MonoBehaviour, IPoolable
 
     public void OnSkill(float explosionRange, float damageAmount)
     {
+        _spriteRenderer.enabled = true;
         StartCoroutine(BombCoroutine(explosionRange, _explosionTime, damageAmount));
     }
 
@@ -69,6 +70,5 @@ public class BombSkillVisual : MonoBehaviour, IPoolable
 
     public void ResetItem()
     {
-        
     }
 }

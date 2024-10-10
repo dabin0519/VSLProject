@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc7896998059c4d9de741e25f28855, type: 3}
+  m_Name: NormalEnemy
+  m_EditorClassIdentifier: 
+  enemeyName: 
+  enemyLevelingList:
+  - level: 1
+    hp: 5
+    damage: 1
+  - level: 2
+    hp: 5.556
+    damage: 1.222
+  - level: 3
+    hp: 6.112
+    damage: 1.444
+  - level: 4
+    hp: 6.668
+    damage: 1.666
+  - level: 5
+    hp: 7.224
+    damage: 1.888
+  - level: 6
+    hp: 7.78
+    damage: 2.11
+  - level: 7
+    hp: 8.336
+    damage: 2.332
+  - level: 8
+    hp: 8.892
+    damage: 2.554
+  - level: 9
+    hp: 9.448
+    damage: 2.776
+  - level: 10
+    hp: 10
+    damage: 3
