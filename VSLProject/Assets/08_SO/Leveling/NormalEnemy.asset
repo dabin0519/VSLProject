@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fc7896998059c4d9de741e25f28855, type: 3}
   m_Name: NormalEnemy
   m_EditorClassIdentifier: 
-  enemeyName: 
+  enemyName: NormalEnemy
   enemyLevelingList:
   - level: 1
     hp: 5

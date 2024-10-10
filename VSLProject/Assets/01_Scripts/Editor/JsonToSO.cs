@@ -15,12 +15,12 @@ public class JsonTOSO : EditorWindow
     private string _soName;
     private string _savePath;
 
-    [MenuItem("MyEditor/SheetToSO")]
+    /*[MenuItem("MddddyEditor/SheetToSO")]
     public static void OpenWindow()
     {
         var window = CreateWindow<JsonTOSO>("SheetToSO");
         window.Show();
-    }
+    }*/
 
     private void OnGUI()
     {
