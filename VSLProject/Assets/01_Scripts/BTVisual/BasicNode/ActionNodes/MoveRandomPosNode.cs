@@ -14,7 +14,6 @@ namespace BTVisual
 
         protected override void OnStart()
         {
-            Debug.Log("??");
             Vector2 dir = brain.target.transform.position - brain.transform.position;
             _dir = -dir;
 

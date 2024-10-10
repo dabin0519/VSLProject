@@ -24,20 +24,26 @@ public class DiceSkillVisual : MonoBehaviour, IPoolable
     private bool _firstBounce;
     private bool _finishRoll;
     private Pool _myPool;
+    private Sprite _defaultSprite;
 
     private readonly int _rollTriggerHash = Animator.StringToHash("Roll");
+    private readonly int _isRollBooleanHash = Animator.StringToHash("IsRoll");
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _defaultSprite = _spriteRenderer.sprite;
     }
 
     public void Init(float damageAmount)
-    {
+    { 
         _spawnTime = Time.time;
         _currentY = transform.position.y;
         _damageAmount = damageAmount;
+        _time = 0;
+        _firstBounce = false;
+        _spriteRenderer.sprite = _defaultSprite;
     }
 
     private void Update()
@@ -75,14 +81,17 @@ public class DiceSkillVisual : MonoBehaviour, IPoolable
 
         yield return new WaitForSeconds(0.2f);
 
-        for (int i = 0; i < idx; i++)
+        for (int i = 0; i <= idx; i++)
         {
             var newBullet = PoolManager.Instance.Pop(_bulletType);
             Bullet bullet = newBullet as ReflectiveBullet;
             bullet.transform.position = transform.position;
-            bullet.Init(bullet.RandomDir(), _damageAmount, true, 1f);
+            bullet.Init(bullet.RandomDir(), _damageAmount, true, 2f);
         }
         yield return new WaitForSeconds(1f);
+        _finishRoll = false;
+        _animator.enabled = true;
+        _animator.SetBool(_isRollBooleanHash, false);
         _myPool.Push(this);
     }
 
@@ -108,6 +117,7 @@ public class DiceSkillVisual : MonoBehaviour, IPoolable
         {
             if (!_firstBounce)
             {
+                _animator.SetBool(_isRollBooleanHash, true);
                 _animator.SetTrigger(_rollTriggerHash);
                 _firstBounce = true;
             }

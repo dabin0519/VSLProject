@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class SkillSelectUI : MonoBehaviour // skillSelectPenel ÀÚÃ¼¸¦ °ü¸®ÇÏ´Â Ä£±¸
 {
-    public List<Attribute> attributeList;
+    [SerializeField] private SkillSelectSO _skillSelectSO;
     [SerializeField] private float _duration;
 
     private List<SkillCardUI> _cardList;
@@ -14,6 +14,7 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel ÀÚÃ¼¸¦ °ü¸®ÇÏ´Â Ä
 
     private RectTransform _backGroundRectTrm;
     private bool _isFirstTime; // ÃÖÃÊ ½ÃÀÛ½Ã ½ºÅÈ¶ß¸é ¸ÁÇÏ´Ï±î ½ºÅ³¸¸ ¶ß°ÔÇÏ±â À§ÇÑ º¯¼ö
+    private List<Attribute> _attributeList;
 
     private void Awake()
     {
@@ -21,6 +22,8 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel ÀÚÃ¼¸¦ °ü¸®ÇÏ´Â Ä
         _cardList = transform.GetComponentsInChildren<SkillCardUI>().ToList();
 
         _backGroundRectTrm.localPosition = new Vector3(0, -1000);
+
+        _attributeList = _skillSelectSO.attributeList;
 
         _isFirstTime = true;
     }
@@ -30,18 +33,18 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel ÀÚÃ¼¸¦ °ü¸®ÇÏ´Â Ä
         int randomIdx;
         do
         {
-            randomIdx = Random.Range(0, attributeList.Count);
+            randomIdx = Random.Range(0, _attributeList.Count);
         }
         // ·£´ý ¼Ó¼ºÀ» »Ì¾Ò´Âµ¥ ¸¸¾à ¼Ó¼º¿¡ ÃÖ°í·¹º§ÀÌ¸é ¾Æ´Ò¶§±îÁö ¤¡¤¡ 
-        while (CheckFirstTime(randomIdx) || attributeList[randomIdx].level >= attributeList[randomIdx].maxLevel || IsDuplication(randomIdx));
+        while (CheckFirstTime(randomIdx) || _attributeList[randomIdx].level >= _attributeList[randomIdx].maxLevel || IsDuplication(randomIdx));
 
         _cardIdxList.Add(randomIdx);
-        return attributeList[randomIdx];
+        return _attributeList[randomIdx];
     }
 
     private bool CheckFirstTime(int randomIdx)
     {
-        if(_isFirstTime && attributeList[randomIdx] is not Skill)
+        if(_isFirstTime && _attributeList[randomIdx] is not Skill)
         {
             return true;
         }

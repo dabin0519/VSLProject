@@ -4,14 +4,14 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[CustomEditor(typeof(SkillSelectUI))]
+[CustomEditor(typeof(SkillSelectSO))]
 public class CustomSkillSelect : Editor
 {
-    private SkillSelectUI _skillSelect;
+    private SkillSelectSO _skillSelect;
 
     private void OnEnable()
     {
-        _skillSelect = target as SkillSelectUI;
+        _skillSelect = target as SkillSelectSO;
     }
 
     public override void OnInspectorGUI()
