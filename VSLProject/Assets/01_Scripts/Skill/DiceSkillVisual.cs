@@ -86,7 +86,7 @@ public class DiceSkillVisual : MonoBehaviour, IPoolable
             var newBullet = PoolManager.Instance.Pop(_bulletType);
             Bullet bullet = newBullet as ReflectiveBullet;
             bullet.transform.position = transform.position;
-            bullet.Init(bullet.RandomDir(), _damageAmount, true, 2f);
+            bullet.Init(bullet.RandomDir(), _damageAmount, false, 2f);
         }
         yield return new WaitForSeconds(1f);
         _finishRoll = false;

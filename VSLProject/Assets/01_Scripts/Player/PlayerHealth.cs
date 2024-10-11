@@ -18,6 +18,11 @@ public class PlayerHealth : HealthSystem, IPlayerComponent
         _playerStat = _player.GetCompo<PlayerStat>().PlayerStatProperty;
     }
 
+    private void Start()
+    {
+        Init(_maxHp);
+    }
+
     protected override void Update()
     {
         base.Update();

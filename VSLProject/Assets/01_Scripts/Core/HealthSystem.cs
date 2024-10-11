@@ -9,8 +9,9 @@ public abstract class HealthSystem : MonoBehaviour, IDamageAble
 
     protected float _currentHp;
 
-    private void Start()
+    public void Init(float maxHP)
     {
+        _maxHp = maxHP;
         _currentHp = _maxHp;
     }
 

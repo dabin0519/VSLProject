@@ -10,3 +10,9 @@ public struct EnemySheetInfo
     public float hp;
     public float damage;
 }
+
+[System.Serializable]
+public struct ExpSheetInfo
+{
+    public float exp;
+}

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR*/
 
 namespace BTVisual
 {
@@ -62,6 +62,7 @@ namespace BTVisual
             AssetDatabase.SaveAssets();
         }
 #endif
+#if UNITY_EDITOR
         public void AddChild(Node parent, Node child)
         {
             // 부모가 누군지에 따라 작동을 달리 해야해
@@ -92,7 +93,8 @@ namespace BTVisual
                 EditorUtility.SetDirty(root);
             }
         }
-
+#endif
+#if UNITY_EDITOR
         public void RemoveChild(Node parent, Node child)
         {
             var decorator = parent as DecoratorNode;
@@ -122,6 +124,7 @@ namespace BTVisual
                 return;
             }
         }
+#endif
 
         public List<Node> GetChildren(Node parent)
         {
@@ -174,4 +177,4 @@ namespace BTVisual
         }
     }
 }
-#endif
+/*#endif*/

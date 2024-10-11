@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/Player/ExpInfo")]
 public class PlayerExpSO : ScriptableObject
 {
-    public List<float> needExpAmountList;
+    public List<float> needExpAmountList = new List<float>();
 }

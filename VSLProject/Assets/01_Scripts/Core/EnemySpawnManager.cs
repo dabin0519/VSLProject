@@ -49,8 +49,16 @@ public class EnemySpawnManager : MonoBehaviour
         }
         while(CheckSpawnPosInPlayerRange(enemyPos));
 
-        var enemy = PoolManager.Instance.Pop(_enemyPoolTypes[LevelingManager.Instance.GetRandomIdx(_enemyPoolTypes.Count)]);
-        enemy.GameObject.transform.position = enemyPos;
+        int randomIdx = LevelingManager.Instance.GetRandomIdx(_enemyPoolTypes.Count);
+        var newEnemy = PoolManager.Instance.Pop(_enemyPoolTypes[randomIdx]);
+        newEnemy.GameObject.transform.position = enemyPos;
+        EnemyBrain enemy = newEnemy as EnemyBrain;
+        EnemyLevelingInfo enemyData = LevelingManager.Instance.GetEnemyLevelingData(randomIdx);
+
+        if(enemy != null)
+        {
+            enemy.Init(enemyData.hp, enemyData.damage);
+        }
     }
 
     private bool CheckSpawnPosInPlayerRange(Vector3 pos)

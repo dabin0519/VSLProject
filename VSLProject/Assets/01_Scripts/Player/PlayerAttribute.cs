@@ -49,7 +49,7 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
 
             foreach(var skillInfo in _skillInfoList)
             {
-                if (skillInfo.skill == skill && skill.level != skill.maxLevel)
+                if (skillInfo.skill.name == skill.name && skill.level != skill.maxLevel)
                 { 
                     skill.LevelUp();
                     UIController.Instance.InfoUIProp.SkillUILevelUP(skill.attributeSO.AttributeInfo.icon);
@@ -104,6 +104,7 @@ public class PlayerAttribute : MonoBehaviour, IPlayerComponent
     private void AddSkill(Skill skill)
     {
         Skill newSkill = Instantiate(skill, _skillHolder);
+        newSkill.name = skill.name;
         _skillInfoList.Add(new SkillInfo(newSkill, 0));
     }
 }

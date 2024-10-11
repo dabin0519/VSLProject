@@ -40,6 +40,12 @@ public abstract class EnemyBrain : MonoBehaviour, IPoolable
         _moveDir = dir;
     }
 
+    public void Init(float hp, float damage)
+    {
+        _damage = damage;
+        _enemyHealth.Init(hp);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && collision.gameObject.TryGetComponent(out IDamageAble damageAble))

@@ -4,22 +4,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+#if UNITY_EDITOR
 using Unity.EditorCoroutines.Editor;
 using UnityEditor;
 
 public class SheetManager : EditorWindow
 {
     public List<EnemySheetInfo> enemySheetInfo;
+    public List<ExpSheetInfo> expSheetInfo;
 
     public Dictionary<Type, string> sheetDictionary = new Dictionary<Type, string>();
 
-    private Type[] _dropDownType = { typeof(EnemySheetInfo), }; // 여기서 선택할 타입을 정의
+    private Type[] _dropDownType = { typeof(EnemySheetInfo), typeof(ExpSheetInfo)}; // 여기서 선택할 타입을 정의
     private int _typeIndex = 0;
     private int _sheetInfoIdx;
     private PathInfoSO _pathInfoSO;
     private string _savePath;
+    private SheetInfo _currentSheetInfo;
 
-    private string _currentName;
+    private string _currentEnemyName;
 
     #region DataLoad Logic
 
@@ -42,6 +45,10 @@ public class SheetManager : EditorWindow
             if (type == typeof(EnemySheetInfo))
             {
                 enemySheetInfo = GetDatasAsChildren<EnemySheetInfo>(sheetDictionary[type]);
+            }
+            else if(type == typeof(ExpSheetInfo))
+            {
+                expSheetInfo = GetDatasAsChildren<ExpSheetInfo>(sheetDictionary[type]);
             }
         }
 
@@ -149,13 +156,21 @@ public class SheetManager : EditorWindow
 
         _sheetInfoIdx = EditorGUILayout.IntField("Sheet Info Idx", _sheetInfoIdx);
 
+        sheetDictionary = new();
+
         if (GUILayout.Button("SheetToSO"))
         {
+            if(_pathInfoSO == null)
+            {
+                Debug.LogError("Path Info So 비워두면 안돼");
+            }
+
             Type selectedType = _dropDownType[_typeIndex];
 
+            _currentSheetInfo = _pathInfoSO.sheetInfoList[_sheetInfoIdx];
             string address = _pathInfoSO.sheetAddress;
-            string range = _pathInfoSO.sheetInfoList[_sheetInfoIdx].range;
-            long gid = _pathInfoSO.sheetInfoList[_sheetInfoIdx].gid;
+            string range = _currentSheetInfo.range;
+            long gid = _currentSheetInfo.gid;
             _savePath = _pathInfoSO.soSavePath;
 
             string tsvAddress = GetTSVAddress(address, range, gid);
@@ -178,17 +193,17 @@ public class SheetManager : EditorWindow
             foreach (var sheetInfo in enemySheetInfo)
             {
                 // 초기 상태거나 이름이 바뀌었을 경우 새로 SO만들기
-                if (_currentName == string.Empty || sheetInfo.name != _currentName)
+                if (_currentEnemyName == string.Empty || sheetInfo.name != _currentEnemyName)
                 {
                     // 이름이 바뀌었을 경우 이전꺼 저장
                     if (enemyDataSO != null)
                     {
-                        SaveSO(enemyDataSO);
+                        SaveSO(enemyDataSO, _currentSheetInfo.saveFolderName, _currentEnemyName);
                     }
 
                     enemyDataSO = ScriptableObject.CreateInstance<EnemyLevelSO>();
-                    _currentName = sheetInfo.name;
-                    enemyDataSO.enemyName = _currentName;
+                    _currentEnemyName = sheetInfo.name;
+                    enemyDataSO.enemyName = _currentEnemyName;
                 }
 
                 EnemyLevelingInfo enemyInfo = new EnemyLevelingInfo();
@@ -198,14 +213,25 @@ public class SheetManager : EditorWindow
                 enemyDataSO.enemyLevelingList.Add(enemyInfo);
             }
 
-            SaveSO(enemyDataSO);
+            //SaveSO(enemyDataSO, );
+        }
+        if (expSheetInfo != null)
+        {
+            PlayerExpSO playerExpSO = ScriptableObject.CreateInstance<PlayerExpSO>();
+
+            foreach (var sheetInfo in expSheetInfo)
+            {
+                playerExpSO.needExpAmountList.Add(sheetInfo.exp);
+            }
+
+            SaveSO(playerExpSO, _currentSheetInfo.saveFolderName, _currentSheetInfo.sheetName); 
         }
     }
 
-    private void SaveSO(EnemyLevelSO enemyDataSO)
+    private void SaveSO(ScriptableObject so, string saveFolderName, string name)
     {
-        _savePath = $"{_pathInfoSO.soSavePath}/{_currentName}.asset";
-        AssetDatabase.CreateAsset(enemyDataSO, _savePath);
+        _savePath = $"{_pathInfoSO.soSavePath}/Leveling/{saveFolderName}/{name}.asset";
+        AssetDatabase.CreateAsset(so, _savePath);
         AssetDatabase.SaveAssets();
     }
 
@@ -221,3 +247,4 @@ public class SheetManager : EditorWindow
 
     #endregion
 }
+#endif

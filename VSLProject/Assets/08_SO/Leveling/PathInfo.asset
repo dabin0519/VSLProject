@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: PathInfo
   m_EditorClassIdentifier: 
   poolPath: Assets/08_SO/Pool/PoolingItem
-  soSavePath: Assets/08_SO/Leveling
+  soSavePath: Assets/08_SO/
   sheetAddress: https://docs.google.com/spreadsheets/d/1xsCurRpBkiezxMZ_U56KV2AjyUpnBeAjNusopo-YowQ
   sheetInfoList:
   - sheetName: EnemyData
     range: A2:D
     gid: 0
+    saveFolderName: Enemy
+  - sheetName: ExpData
+    range: L4:L32
+    gid: 0
+    saveFolderName: Exp

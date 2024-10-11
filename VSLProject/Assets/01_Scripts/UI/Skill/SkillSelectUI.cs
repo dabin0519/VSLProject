@@ -8,6 +8,7 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel 자체를 관리하는 �
 {
     [SerializeField] private SkillSelectSO _skillSelectSO;
     [SerializeField] private float _duration;
+    [SerializeField] private PlayerExp _playerExp;
 
     private List<SkillCardUI> _cardList;
     [SerializeField] private List<int> _cardIdxList = new List<int>();
@@ -87,6 +88,13 @@ public class SkillSelectUI : MonoBehaviour // skillSelectPenel 자체를 관리하는 �
         if(_isFirstTime) 
             _isFirstTime = false;
 
-        _backGroundRectTrm.DOLocalMoveY(posY, _duration).SetUpdate(true);
+        _backGroundRectTrm.DOLocalMoveY(posY, _duration).SetUpdate(true)
+            .OnComplete(() => 
+            {
+                if(value == false)
+                {
+                    GameManager.Instance.DelayTime(0.2f, () => _playerExp.CanLevelUP());
+                }
+            });
     }
 }

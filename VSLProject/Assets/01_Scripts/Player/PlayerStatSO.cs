@@ -5,10 +5,10 @@ using UnityEngine;
 public enum StatType
 {
     MaxHp,
-    MoveSpeed,
     AttackDamage,
+    MoveSpeed,
     Defense,
-    AttackRange,
+    AttackRange, 
     CoolDown,
     SkillDuration,
     ExpMultiplier

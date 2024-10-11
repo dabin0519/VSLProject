@@ -8,6 +8,7 @@ public struct SheetInfo
     public string sheetName;
     public string range;
     public int gid;
+    public string saveFolderName;
 }
 
 [CreateAssetMenu(menuName = "SO/PathInfo")]

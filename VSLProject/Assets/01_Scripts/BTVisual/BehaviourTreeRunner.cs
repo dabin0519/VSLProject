@@ -1,5 +1,5 @@
 using UnityEngine;
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR*/
 namespace BTVisual
 {
     public class BehaviourTreeRunner : MonoBehaviour
@@ -25,4 +25,4 @@ namespace BTVisual
     }
 }
 
-#endif
+/*#endif*/
