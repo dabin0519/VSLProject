@@ -20,8 +20,8 @@ MonoBehaviour:
   moveSpeed: 0
   attackDamage: 0
   MaxHp: 0
-  depense: 0.2
+  defense: 5
   attackRange: 0
-  timeAccelration: 0
+  coolDown: 0
   skillDuration: 0
   expMultiplier: 0

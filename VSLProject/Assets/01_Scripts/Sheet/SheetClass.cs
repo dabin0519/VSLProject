@@ -16,3 +16,10 @@ public struct ExpSheetInfo
 {
     public float exp;
 }
+
+[System.Serializable]
+public struct EnemySpawnRateInfo
+{
+    public int spawnAmount;
+    public float spawnCoolTime;
+}

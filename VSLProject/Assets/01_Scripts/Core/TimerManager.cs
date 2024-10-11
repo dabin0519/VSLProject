@@ -21,6 +21,7 @@ public class TimerManager : MonoSingleton<TimerManager>
         {
             _minute++;
             _second = 0;
+            LevelingManager.Instance.LevelUP();
         }
 
         _timerUI.UpdateTimerUI(_minute, (int)_second);

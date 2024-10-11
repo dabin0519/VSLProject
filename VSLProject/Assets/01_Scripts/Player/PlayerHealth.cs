@@ -34,7 +34,14 @@ public class PlayerHealth : HealthSystem, IPlayerComponent
     {
         if (isInvincibility) return;
 
-        base.OnDamage(damage);
+        _currentHp -= damage * ((100 - _playerStat.defense) / 100);
+
+        if (_currentHp <= 0)
+        {
+            OnDie();
+        }
+
+        _hpBarUI.UpdateUI(_currentHp, _maxHp);
 
         _playerAnimation.OnDamageAnimation();
     }

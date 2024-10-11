@@ -10,12 +10,13 @@ using UnityEditor;
 
 public class SheetManager : EditorWindow
 {
-    public List<EnemySheetInfo> enemySheetInfo;
-    public List<ExpSheetInfo> expSheetInfo;
+    private List<EnemySheetInfo>        _enemySheetInfo;
+    private List<ExpSheetInfo>          _expSheetInfo;
+    private List<EnemySpawnRateInfo>    _enemySpawnRateInfo;
 
     public Dictionary<Type, string> sheetDictionary = new Dictionary<Type, string>();
 
-    private Type[] _dropDownType = { typeof(EnemySheetInfo), typeof(ExpSheetInfo)}; // 여기서 선택할 타입을 정의
+    private Type[] _dropDownType = { typeof(EnemySheetInfo), typeof(ExpSheetInfo), typeof(EnemySpawnRateInfo)}; // 여기서 선택할 타입을 정의
     private int _typeIndex = 0;
     private int _sheetInfoIdx;
     private PathInfoSO _pathInfoSO;
@@ -24,12 +25,7 @@ public class SheetManager : EditorWindow
 
     private string _currentEnemyName;
 
-    #region DataLoad Logic
-
-    public void SheetDataLoad()
-    {
-        this.StartCoroutine(LoadData());
-    }
+    #region Make SO Logic
 
     public IEnumerator LoadData()
     {
@@ -44,16 +40,100 @@ public class SheetManager : EditorWindow
 
             if (type == typeof(EnemySheetInfo))
             {
-                enemySheetInfo = GetDatasAsChildren<EnemySheetInfo>(sheetDictionary[type]);
+                _enemySheetInfo = GetDatasAsChildren<EnemySheetInfo>(sheetDictionary[type]);
             }
             else if(type == typeof(ExpSheetInfo))
             {
-                expSheetInfo = GetDatasAsChildren<ExpSheetInfo>(sheetDictionary[type]);
+                _expSheetInfo = GetDatasAsChildren<ExpSheetInfo>(sheetDictionary[type]);
+            }
+            else if(type == typeof(EnemySpawnRateInfo))
+            {
+                _enemySpawnRateInfo = GetDatasAsChildren<EnemySpawnRateInfo>(sheetDictionary[type]);
             }
         }
 
         SheetToSO();
     }
+
+    private void SheetToSO()
+    {
+        if (_enemySheetInfo != null)
+        {
+            EnemyDataToSO();
+        }
+        if (_expSheetInfo != null)
+        {
+            ExpDataToSO();
+        }
+        if (_enemySpawnRateInfo != null)
+        {
+            EnemySpawnRateDataToSO();
+        }
+    }
+
+    private void EnemySpawnRateDataToSO()
+    {
+        EnemySpawnRateSO enemySpawnRate = ScriptableObject.CreateInstance<EnemySpawnRateSO>();
+
+        foreach(var sheetInfo in _enemySpawnRateInfo)
+        {
+            enemySpawnRate.spawnRateDataList.Add(sheetInfo);
+        }
+
+        SaveSO(enemySpawnRate, _currentSheetInfo.saveFolderName, _currentSheetInfo.sheetName);
+    }
+
+    private void ExpDataToSO()
+    {
+        PlayerExpSO playerExpSO = ScriptableObject.CreateInstance<PlayerExpSO>();
+
+        foreach (var sheetInfo in _expSheetInfo)
+        {
+            playerExpSO.needExpAmountList.Add(sheetInfo.exp);
+        }
+
+        SaveSO(playerExpSO, _currentSheetInfo.saveFolderName, _currentSheetInfo.sheetName);
+    }
+
+    #endregion
+
+    private void EnemyDataToSO()
+    {
+        EnemyLevelSO enemyDataSO = null;
+
+        foreach (var sheetInfo in _enemySheetInfo)
+        {
+            // 초기 상태거나 이름이 바뀌었을 경우 새로 SO만들기
+            if (_currentEnemyName == string.Empty || sheetInfo.name != _currentEnemyName)
+            {
+                // 이름이 바뀌었을 경우 이전꺼 저장
+                if (enemyDataSO != null)
+                {
+                    SaveSO(enemyDataSO, _currentSheetInfo.saveFolderName, _currentEnemyName);
+                }
+
+                enemyDataSO = ScriptableObject.CreateInstance<EnemyLevelSO>();
+                _currentEnemyName = sheetInfo.name;
+                enemyDataSO.enemyName = _currentEnemyName;
+            }
+
+            EnemyLevelingInfo enemyInfo = new EnemyLevelingInfo();
+            enemyInfo.level = sheetInfo.level;
+            enemyInfo.hp = sheetInfo.hp;
+            enemyInfo.damage = sheetInfo.damage;
+            enemyDataSO.enemyLevelingList.Add(enemyInfo);
+        }
+
+        SaveSO(enemyDataSO, _currentSheetInfo.saveFolderName, _currentEnemyName);
+    }
+
+    #region DataLoad Logic
+
+    public void SheetDataLoad()
+    {
+        this.StartCoroutine(LoadData());
+    }
+
 
     public string GetTSVAddress(string address, string range, long sheetID)
     {
@@ -154,12 +234,12 @@ public class SheetManager : EditorWindow
 
         _typeIndex = EditorGUILayout.Popup("Data Type", _typeIndex, GetAvailableTypeNames());
 
-        _sheetInfoIdx = EditorGUILayout.IntField("Sheet Info Idx", _sheetInfoIdx);
-
         sheetDictionary = new();
 
         if (GUILayout.Button("SheetToSO"))
         {
+            _sheetInfoIdx = _typeIndex;
+
             if(_pathInfoSO == null)
             {
                 Debug.LogError("Path Info So 비워두면 안돼");
@@ -181,50 +261,6 @@ public class SheetManager : EditorWindow
             }
 
             SheetDataLoad();
-        }
-    }
-
-    private void SheetToSO()
-    {
-        if (enemySheetInfo != null)
-        {
-            EnemyLevelSO enemyDataSO = null;
-
-            foreach (var sheetInfo in enemySheetInfo)
-            {
-                // 초기 상태거나 이름이 바뀌었을 경우 새로 SO만들기
-                if (_currentEnemyName == string.Empty || sheetInfo.name != _currentEnemyName)
-                {
-                    // 이름이 바뀌었을 경우 이전꺼 저장
-                    if (enemyDataSO != null)
-                    {
-                        SaveSO(enemyDataSO, _currentSheetInfo.saveFolderName, _currentEnemyName);
-                    }
-
-                    enemyDataSO = ScriptableObject.CreateInstance<EnemyLevelSO>();
-                    _currentEnemyName = sheetInfo.name;
-                    enemyDataSO.enemyName = _currentEnemyName;
-                }
-
-                EnemyLevelingInfo enemyInfo = new EnemyLevelingInfo();
-                enemyInfo.level = sheetInfo.level;
-                enemyInfo.hp = sheetInfo.hp;
-                enemyInfo.damage = sheetInfo.damage;
-                enemyDataSO.enemyLevelingList.Add(enemyInfo);
-            }
-
-            //SaveSO(enemyDataSO, );
-        }
-        if (expSheetInfo != null)
-        {
-            PlayerExpSO playerExpSO = ScriptableObject.CreateInstance<PlayerExpSO>();
-
-            foreach (var sheetInfo in expSheetInfo)
-            {
-                playerExpSO.needExpAmountList.Add(sheetInfo.exp);
-            }
-
-            SaveSO(playerExpSO, _currentSheetInfo.saveFolderName, _currentSheetInfo.sheetName); 
         }
     }
 

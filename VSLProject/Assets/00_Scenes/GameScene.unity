@@ -28508,8 +28508,7 @@ MonoBehaviour:
   _spawnDistanceLimitX: 10
   _spawnDistanceLimitY: 6
   _spawnPosOffset: 0.5
-  _spawnAmount: 1
-  _spawnCoolTime: 5
+  EnemySpawnRateSO: {fileID: 11400000, guid: a2593d43785736d44a3edf6677a9c2c7, type: 2}
 --- !u!1 &2126785531
 GameObject:
   m_ObjectHideFlags: 0
