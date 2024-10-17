@@ -41,4 +41,12 @@ public class GameManager : MonoSingleton<GameManager>
         yield return new WaitForSecondsRealtime(time);
         callback?.Invoke();
     }
+
+    public Vector2 GetRandomDir()
+    {
+        float angle = UnityEngine.Random.Range(0f, 360f);
+        Vector2 dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+
+        return dir.normalized;
+    }
 }
