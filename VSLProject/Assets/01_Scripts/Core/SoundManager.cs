@@ -23,8 +23,14 @@ public class SoundManager : MonoSingleton<SoundManager>
         _bgmSource.Play();
     }
 
-    public void PlayerFPX(AudioClip clip)
+    public void PlaySFX(AudioClip clip)
     {
         _sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlaySFX(AudioClip clip, float duration)
+    {
+        _sfxSource.PlayOneShot(clip);
+        GameManager.Instance.DelayTime(duration, () => _sfxSource.Stop());
     }
 }

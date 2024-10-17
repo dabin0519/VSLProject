@@ -15,31 +15,31 @@ MonoBehaviour:
   enemyName: NormalEnemy
   enemyLevelingList:
   - level: 1
-    hp: 5
+    hp: 3
     damage: 1
   - level: 2
-    hp: 5.556
+    hp: 3.778
     damage: 1.222
   - level: 3
-    hp: 6.112
+    hp: 4.556
     damage: 1.444
   - level: 4
-    hp: 6.668
+    hp: 5.334
     damage: 1.666
   - level: 5
-    hp: 7.224
+    hp: 6.112
     damage: 1.888
   - level: 6
-    hp: 7.78
+    hp: 6.89
     damage: 2.11
   - level: 7
-    hp: 8.336
+    hp: 7.668
     damage: 2.332
   - level: 8
-    hp: 8.892
+    hp: 8.446
     damage: 2.554
   - level: 9
-    hp: 9.448
+    hp: 9.224
     damage: 2.776
   - level: 10
     hp: 10

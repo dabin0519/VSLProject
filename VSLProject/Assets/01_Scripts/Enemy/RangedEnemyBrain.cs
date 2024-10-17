@@ -43,11 +43,6 @@ public class RangedEnemyBrain : EnemyBrain
         bullet.Init(target.transform.position - transform.position, _damage, true, 2f);
     }
 
-    public override void ResetItem()
-    {
-        
-    }
-
     public override void SetUpPool(Pool pool)
     {
         

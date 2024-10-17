@@ -17,6 +17,7 @@ public class EnemySpawnManager : MonoBehaviour
     private int _spawnAmount;
     private float _spawnTime;
     private int _level;
+    private bool _oneCall;
 
     private void Awake()
     {
@@ -37,6 +38,12 @@ public class EnemySpawnManager : MonoBehaviour
 
     private void CalculateSpawnTime()
     {
+        if(!_oneCall)
+        {
+            _spawnTime = _spawnCoolTime;
+            _oneCall = true;
+        }
+
         if(_spawnTime < _spawnCoolTime)
         {
             _spawnTime += Time.deltaTime;

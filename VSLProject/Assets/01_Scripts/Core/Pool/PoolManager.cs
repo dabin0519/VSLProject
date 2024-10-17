@@ -6,6 +6,7 @@ public class PoolManager : MonoSingleton<PoolManager>
 {
     public List<PoolingItemSO> poolingItems;
     private Dictionary<PoolTypeSO, Pool> _pools;
+    public PathInfoSO pathInfo;
 
     private void Awake()
     {

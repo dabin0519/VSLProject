@@ -30,6 +30,11 @@ public class EnemyVisualController : MonoBehaviour
         transform.localScale = new Vector3(enemySpriteInfo.scale, enemySpriteInfo.scale);
     }
 
+    public void InitColor()
+    {
+        _spriteRenderer.color = Color.white;
+    }
+
     private int GetRandomIdx()
     {
         int rNum = Random.Range(0, _enemySpriteInfo.Count);

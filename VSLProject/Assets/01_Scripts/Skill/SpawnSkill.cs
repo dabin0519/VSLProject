@@ -14,7 +14,7 @@ public abstract class SpawnSkill : Skill
         SpawnObject();
     }
 
-    protected void SpawnObject()
+    protected virtual void SpawnObject()
     {
         var newObj = PoolManager.Instance.Pop(_spawnPoolType);
         InitObject(newObj.GameObject);

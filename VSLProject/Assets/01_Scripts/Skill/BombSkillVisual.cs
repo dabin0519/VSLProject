@@ -8,6 +8,9 @@ public class BombSkillVisual : MonoBehaviour, IPoolable
     [SerializeField] private GameObject _bombEffect;
     [SerializeField] private LayerMask _whatIsEnemy;
     [SerializeField] private float _explosionTime; // 폭발까지 걸리는 시간
+    [SerializeField] private AudioClip _explosionClip;
+    [SerializeField] private AudioClip _fuseClip;
+    [SerializeField] private float _soundDuration;
 
     [field: SerializeField] public PoolTypeSO PoolType { get; private set; }
 
@@ -35,6 +38,8 @@ public class BombSkillVisual : MonoBehaviour, IPoolable
     {
         int cnt = 3;
 
+        SoundManager.Instance.PlaySFX(_fuseClip, _soundDuration);
+
         for(int i = 0; i < cnt; ++i)
         {
             float time =  explosionTime / (cnt * 2);
@@ -48,6 +53,7 @@ public class BombSkillVisual : MonoBehaviour, IPoolable
         _spriteRenderer.enabled = false;
 
         GameObject newObject = Instantiate(_bombEffect, transform.position, Quaternion.identity);
+        SoundManager.Instance.PlaySFX(_explosionClip); 
 
         // bomb 
         RaycastHit2D[] hitInfos = Physics2D.CircleCastAll(transform.position, explosionRange, Vector2.zero, _whatIsEnemy);

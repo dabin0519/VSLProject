@@ -21,7 +21,7 @@ MonoBehaviour:
     gid: 0
     saveFolderName: Enemy
   - sheetName: ExpData
-    range: L4:L32
+    range: G2:G31
     gid: 0
     saveFolderName: Exp
   - sheetName: SpawnRate

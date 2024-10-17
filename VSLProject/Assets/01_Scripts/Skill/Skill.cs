@@ -66,6 +66,7 @@ public abstract class Skill : Attribute
     public virtual void OnSkill()
     {
         _onSkill = true;
+        SoundManager.Instance.PlaySFX(skillClip);
     }
     public abstract void SkillLevelUP();
     public abstract void OffSkill();

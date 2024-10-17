@@ -10,6 +10,7 @@ public class DiceSkillVisual : MonoBehaviour, IPoolable
     [SerializeField] private List<Sprite> _sprites;
     [SerializeField] private float _dropDistance;
     [SerializeField] private float _power;
+    [SerializeField] private AudioClip _clip;
     [field:SerializeField] public PoolTypeSO PoolType {  get; private set; }
     [SerializeField] private PoolTypeSO _bulletType;
 
@@ -25,6 +26,7 @@ public class DiceSkillVisual : MonoBehaviour, IPoolable
     private bool _finishRoll;
     private Pool _myPool;
     private Sprite _defaultSprite;
+    private bool _isRollStart;
 
     private readonly int _rollTriggerHash = Animator.StringToHash("Roll");
     private readonly int _isRollBooleanHash = Animator.StringToHash("IsRoll");
@@ -56,6 +58,11 @@ public class DiceSkillVisual : MonoBehaviour, IPoolable
 
     private void RollDice()
     {
+        if(!_isRollStart)
+        {
+            SoundManager.Instance.PlaySFX(_clip);
+            _isRollStart = true;
+        }
         _time += Time.deltaTime;
         float progress = _time / _rollDuration;
 
@@ -90,6 +97,7 @@ public class DiceSkillVisual : MonoBehaviour, IPoolable
         }
         yield return new WaitForSeconds(1f);
         _finishRoll = false;
+        _isRollStart = false;
         _animator.enabled = true;
         _animator.SetBool(_isRollBooleanHash, false);
         _myPool.Push(this);

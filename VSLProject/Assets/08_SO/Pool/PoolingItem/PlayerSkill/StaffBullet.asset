@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d0235d18beaea847800ae6a8d171483, type: 3}
+  m_Name: StaffBullet
+  m_EditorClassIdentifier: 
+  poolType: {fileID: 11400000, guid: 5863d022e634e79438ff425a2551c5d0, type: 2}
+  prefab: {fileID: 5538132772678259994, guid: 6256996cd5c98db45a28a7f683044205, type: 3}
+  initCount: 10

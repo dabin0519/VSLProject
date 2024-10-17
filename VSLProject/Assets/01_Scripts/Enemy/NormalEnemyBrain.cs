@@ -16,9 +16,4 @@ public class NormalEnemyBrain : EnemyBrain, IPoolable
     {
         _myPool = pool;
     }
-
-    public override void ResetItem()
-    {
-        
-    }
 }

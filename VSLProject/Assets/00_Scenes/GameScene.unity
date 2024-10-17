@@ -181,6 +181,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 80e8da389fa1ff84385f260d1a3ffd83, type: 2}
   - {fileID: 11400000, guid: 9aadc3988cf9d9d42bc3643c0ad34781, type: 2}
   - {fileID: 11400000, guid: 4f4b5ee0c9ede5047ad5ca4bccf7b206, type: 2}
+  - {fileID: 11400000, guid: 30de93855ee32cd45bea6b892624ad44, type: 2}
+  pathInfo: {fileID: 11400000, guid: e323722f77ed0b14188f4cf6d57189ed, type: 2}
 --- !u!1 &44702643
 GameObject:
   m_ObjectHideFlags: 0
@@ -23289,10 +23291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07392a63966cce34c8ffb7ce3e55f3cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sheetDataList:
-  - {fileID: 11400000, guid: 353ca6303c06e374e8a6ce8b524073b6, type: 2}
-  - {fileID: 11400000, guid: fdb785bf72205544fa60d514af232536, type: 2}
-  - {fileID: 11400000, guid: 1553fedc1ace81e47832f58683c8743f, type: 2}
 --- !u!1 &1634684567
 GameObject:
   m_ObjectHideFlags: 0
@@ -27587,7 +27585,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -1227796789
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &2028610728
 RectTransform:
@@ -28509,6 +28507,10 @@ MonoBehaviour:
   _spawnDistanceLimitY: 6
   _spawnPosOffset: 0.5
   EnemySpawnRateSO: {fileID: 11400000, guid: a2593d43785736d44a3edf6677a9c2c7, type: 2}
+  _enemySheetDataList:
+  - {fileID: 11400000, guid: 353ca6303c06e374e8a6ce8b524073b6, type: 2}
+  - {fileID: 11400000, guid: fdb785bf72205544fa60d514af232536, type: 2}
+  - {fileID: 11400000, guid: 1553fedc1ace81e47832f58683c8743f, type: 2}
 --- !u!1 &2126785531
 GameObject:
   m_ObjectHideFlags: 0

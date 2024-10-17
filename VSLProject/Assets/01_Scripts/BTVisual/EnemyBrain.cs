@@ -56,6 +56,9 @@ public abstract class EnemyBrain : MonoBehaviour, IPoolable
 
     public abstract void Attack(Action AttackFinishEvent);
 
-    public abstract void ResetItem();
+    public virtual void ResetItem()
+    {
+        _enemyVisualController.InitColor();
+    }
     public abstract void SetUpPool(Pool pool);
 }

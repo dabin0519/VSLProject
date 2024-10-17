@@ -7,7 +7,6 @@ using UnityEngine;
 public class CustomPoolManager : Editor
 {
     private PoolManager _manager;
-    private string _poolItemPath;
 
     private void OnEnable() {
         _manager = target as PoolManager;
@@ -21,15 +20,13 @@ public class CustomPoolManager : Editor
         {
             UpdatePoolingItems();
         }
-
-        _poolItemPath = EditorGUILayout.TextField("Pool Items Path", _poolItemPath);
     }
 
     private void UpdatePoolingItems()
     {
         List<PoolingItemSO> loadedItems = new List<PoolingItemSO>();
 
-        string path = _poolItemPath == "" ? "Assets/08_SO/Pool/PoolingItem" : _poolItemPath;
+        string path = _manager.pathInfo.poolPath;
         string[] assetGUIDs = AssetDatabase.FindAssets("", new []{path});
 
         foreach(string guid in assetGUIDs)

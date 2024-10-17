@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombSkill : SpawnSkill
+public class BombSkill : SpawnSkill 
 {
     [SerializeField] private float _explosionRange; // 폭발 범위
     [SerializeField] private float _increaseRange; // 레벨업시 커질 범위

@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour, IPoolable
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _offsetAngle;
+    [SerializeField] private AudioClip _clip;
     [field: SerializeField] public PoolTypeSO PoolType { get; private set; }
 
     public GameObject GameObject => gameObject;
@@ -39,6 +40,7 @@ public class Bullet : MonoBehaviour, IPoolable
         angle += _offsetAngle;
 
         transform.rotation = Quaternion.Euler(0,0, angle);
+        SoundManager.Instance.PlaySFX(_clip);
     }
 
     public Vector2 RandomDir()
@@ -55,12 +57,12 @@ public class Bullet : MonoBehaviour, IPoolable
 
         if(Time.time - _startTime > 0.01f)
         {
-            _trailRenderer.enabled = true;
             _circleCollider.isTrigger = true;
         }
         
         if(Time.time - _spawnTime > _duration)
         {
+            _trailRenderer.Clear();
             _myPool.Push(this);
         }
     }
@@ -87,6 +89,6 @@ public class Bullet : MonoBehaviour, IPoolable
 
     public void ResetItem()
     {
-        _trailRenderer.enabled = false;
+
     }
 }
